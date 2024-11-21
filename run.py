@@ -429,7 +429,25 @@ def viewDueTasks():
 
 
 def viewPastDueTasks():
-    pass
+    clear()
+    print("View Past Due Tasks:")
+    print('Xx------------------------------------------------------xX\n')
+    tasks = info.get_all_values()
+
+    tasks_vals = tasks[1:]
+    DueTaskList = []
+    present = datetime.now()
+    for val in tasks_vals:
+        dateGiven = datetime.strptime(val[2], "%d/%m/%Y")
+        if (dateGiven.date() < present.date()):
+            DueTaskList.append(val)
+
+    for x in range(0, len(DueTaskList)):
+        print(
+            f"Task: {x+1}\nContent: {DueTaskList[x][0]},\n"
+            f"Status: {DueTaskList[x][1]},\nDue Date: {DueTaskList[x][2]}\n"
+        )
+
 
 
 def backToMain():
