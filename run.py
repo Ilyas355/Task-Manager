@@ -56,3 +56,40 @@ class Task:
                 )
                 print('\nEnter the new content for the task\n')
                 Content = input('')
+
+    def UpdateStatus(self):
+        clear()
+        valid = False
+        print(
+            f"Current Task: \nContent: {self.content},\n"
+            f"Status: {self.status},\nDue Date: {self.dueDate}\n"
+        )
+        print(
+            "Enter the correspoding number to change" 
+            "the status of the task:\n"
+        )
+        print('1: Complete')
+        print('2: Incomplete\n')
+        Status = input('')
+        while valid is False:
+            if Status == str(1):
+                self.status = 'Complete'
+                valid = True
+            elif Status == str(2):
+                self.status = 'Incomplete'
+                valid = True
+            else:
+                print('Invalid Input')
+                time.sleep(1)
+                clear()
+                print(
+                    f"Current Task:\nContent: {self.content},\n"
+                    f"Status: {self.status},\nDue Date: {self.dueDate}\n"
+                )
+                print(
+                    'Enter the correspoding number to'
+                    ' change the status of the task:\n'
+                )
+                print('1: Complete')
+                print('2: Incomplete\n')
+                Status = input('')
