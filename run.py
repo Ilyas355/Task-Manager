@@ -212,7 +212,22 @@ def viewTask():
 
 
 def addTask():
-    pass
+    clear()
+    valid = False
+    valid2=False
+    print('Add Task')
+    print('Xx------------------------------------------------------xX\n')
+    print('Content:')
+    taskContent = input("\nEnter the content of the new task:\n")
+    print('\nDue Date:')
+    print('Enter the due date of the new task:')
+    taskDueDate = input("\n")
+    while valid is False:
+        if validateDate(taskDueDate) is True:
+            task = Task(taskContent, 'Incomplete', taskDueDate)
+            valid = True
+        else:
+            taskDueDate = input('\n')
 
 
 def main():
