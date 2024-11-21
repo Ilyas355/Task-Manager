@@ -191,6 +191,24 @@ def viewTask():
     print('5: View Due Tasks\n')
     print('6: View Past Due Tasks\n')
     print('7: Back to main\n')
+    choice = input('')
+    if choice == str(1):
+        viewAllTasks()
+    elif choice == str(2):
+        viewLastTask()
+    elif choice == str(3):
+        viewCompletedTasks()
+    elif choice == str(4):
+        viewIncompletedTasks()
+    elif choice == str(5):
+        viewDueTasks()
+    elif choice == str(6):
+        viewPastDueTasks()
+    elif choice == str(7):
+        backToMain()
+    else:
+        print('Invalid input, please enter a correct value:')
+        viewTask()
 
 
 def addTask():
