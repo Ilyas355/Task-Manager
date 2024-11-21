@@ -139,6 +139,54 @@ class Task:
                 DueDate = input('')
 
 
+def applyChanges(task, originalTask):
+    pass
+
+
+def removeTask(task):
+    pass
+
+
+def modifyTask(taskObject, originalTask):
+    pass
+
+
+def viewAllTasks():
+    pass
+
+
+def viewLastTask():
+    pass
+
+
+def viewCompletedTasks():
+    pass
+
+
+def viewIncompletedTasks():
+    pass
+
+
+def viewDueTasks():
+    pass
+
+
+def viewPastDueTasks():
+    pass
+
+
+def backToMain():
+    pass
+
+
+def viewTask():
+    pass
+
+
+def addTask():
+    pass
+
+
 def main():
     clear()
     print('Main Menu')
