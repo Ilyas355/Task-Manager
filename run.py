@@ -212,7 +212,16 @@ def viewAllTasks():
 
 
 def viewLastTask():
-    pass
+    clear()
+    print("View Last Task:\n")
+    print('Xx------------------------------------------------------xX\n')
+    task = info.get_all_values()
+    task_vals =task[-1]
+    print(
+        f"Task:\nContent: {task_vals[0]},\nStatus: {task_vals[1]},"
+        f"\nDue Date: {task_vals[2]}\n"
+    )
+
 
 
 def viewCompletedTasks():
