@@ -261,6 +261,47 @@ def viewCompletedTasks():
             f"Status: {completeList[x][1]},\nDue Date: {completeList[x][2]}\n"
         )
 
+    print("Enter the number of the task below to select a task:")
+    print("Enter 0 to return to the main menu:\n")
+    choice = input("")
+
+    try:
+        if choice == str(0):
+            main()
+            return
+        selection = completeList[int(choice) - 1]
+        valid=False
+        while valid is False:
+            clear()
+            print("View Completed Tasks:\n")
+            print(
+                f"Task: {choice},\nContent: {selection[0]},\n"
+                f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
+            )
+            print("\nTo modify the task, enter 1")
+            print("To remove the task, enter 2")
+            print("To return to the main menu, enter 0\n")
+            choice2=input("")
+            if choice2 == str(0):
+                main()
+                valid = True
+            if choice2 == str(1):
+                print(selection)
+                taskObject = Task(selection[0],selection[1],selection[2])
+                modifyTask(taskObject, selection)
+                valid = True
+            elif choice2 == str(2):
+                removeTask(selection)
+                valid = True
+            else:
+                print('Invalid input, please enter the correct value:')
+                time.sleep(1)
+            
+    except IndexError as e:
+        print(f'{e}, please enter the correct value:')
+        time.sleep(1.5)
+        viewCompletedTasks()
+        return
 
 
 def viewIncompletedTasks():
