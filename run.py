@@ -221,7 +221,26 @@ def viewLastTask():
         f"Task:\nContent: {task_vals[0]},\nStatus: {task_vals[1]},"
         f"\nDue Date: {task_vals[2]}\n"
     )
+    print("To modify the task, enter 1")
+    print("To remove the task, enter 2")
+    print("To return to the main menu, enter 0\n")
+    choice=input("")
 
+    if choice == str(0):
+        main()
+        return
+    if choice == str(1):
+        print(task_vals)
+        taskObject = Task(task_vals[0],task_vals[1],task_vals[2])
+        modifyTask(taskObject, task_vals)
+        return
+    elif choice == str(2):
+        print(task_vals)
+        removeTask(task_vals)
+    else:
+        print('Invalid input, please enter the correct value:')
+        time.sleep(1.5)
+        viewLastTask()
 
 
 def viewCompletedTasks():
