@@ -180,7 +180,17 @@ def backToMain():
 
 
 def viewTask():
-    pass
+    clear()
+    print('View Task')
+    print('Xx------------------------------------------------------xX\n')
+    print('Selection an option from those below: \n')
+    print('1: View All Tasks\n')
+    print('2: View Last Task\n')
+    print('3: View Completed Tasks\n')
+    print('4: View Incompleted Tasks\n')
+    print('5: View Due Tasks\n')
+    print('6: View Past Due Tasks\n')
+    print('7: Back to main\n')
 
 
 def addTask():
