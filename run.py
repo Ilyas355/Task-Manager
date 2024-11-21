@@ -228,6 +228,30 @@ def addTask():
             valid = True
         else:
             taskDueDate = input('\n')
+    clear()
+
+    print('Current Task:\n')
+    print(f"content: {task.content}")
+    print(f"status: {task.status}")
+    print(f"due date: {task.dueDate}\n")
+
+    print('Would you like to confirm changes made to the task?\n')
+    print('Enter 1 for yes:')
+    print('Enter 2 for No:\n')
+    confirm = input('')
+    while valid2 is False:
+        if confirm == str(1):
+            info.append_row([task.content, tas.status, task.dueDate])
+            valid2 = True
+        elif confirm == str(2):
+            main()
+            break
+        else:
+            print('Invalid input')
+            confirm = input('')
+            time.sleep(1)
+
+    main()
 
 
 def main():
