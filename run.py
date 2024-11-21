@@ -155,12 +155,12 @@ def viewAllTasks():
     clear()
     print("View All Tasks:")
     print('Xx------------------------------------------------------xX\n')
-    stock = info.get_all_values()
-    stock_row = stock[1:]
-    for x in range(0, len(stock_row)):
+    tasks = info.get_all_values()
+    task_vals = tasks[1:]
+    for x in range(0, len(task_vals)):
         print(
-            f"Task: {x+1}\nContent: {stock_row[x][0]},\n"
-            f"Status: {stock_row[x][1]},\nDue Date: {stock_row[x][2]}\n"
+            f"Task: {x+1}\nContent: {task_vals[x][0]},\n"
+            f"Status: {task_vals[x][1]},\nDue Date: {task_vals[x][2]}\n"
         )
 
     print("Enter the number of the task below to select a task:")
@@ -171,7 +171,7 @@ def viewAllTasks():
         if choice == str(0):
             main()
             return
-        selection = stock_row[int(choice) - 1]
+        selection = task_vals[int(choice) - 1]
         valid=False
         while valid is False:
             clear()
