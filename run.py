@@ -42,6 +42,13 @@ def validateDate(date_text):
 
     return valid
 
+def validateContent(content):
+    valid = False
+    if all(x.isalpha() or x.isspace() for x in content):
+        return True
+    else:
+        return False
+
 
 class Task:
 
