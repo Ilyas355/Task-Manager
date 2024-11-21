@@ -152,7 +152,63 @@ def modifyTask(taskObject, originalTask):
 
 
 def viewAllTasks():
-    pass
+    clear()
+    print("View All Tasks:")
+    print('Xx------------------------------------------------------xX\n')
+    stock = info.get_all_values()
+    stock_row = stock[1:]
+    for x in range(0, len(stock_row)):
+        print(
+            f"Task: {x+1}\nContent: {stock_row[x][0]},\n"
+            f"Status: {stock_row[x][1]},\nDue Date: {stock_row[x][2]}\n"
+        )
+
+    print("Enter the number of the task below to select a task:")
+    print("Enter 0 to return to the main menu:\n")
+    choice = input("")
+
+    try:
+        if choice == str(0):
+            main()
+            return
+        selection = stock_row[int(choice) - 1]
+        valid=False
+        while valid is False:
+            clear()
+            print("View All Tasks:\n")
+            print(
+                f"Task: {choice},\nContent: {selection[0]},\n"
+                f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
+            )
+            print("\nTo modify the task, enter 1")
+            print("To remove the task, enter 2")
+            print("To return to the main menu, enter 0\n")
+            choice2=input("")
+            if choice2 == str(0):
+                main()
+                valid = True
+            if choice2 == str(1):
+                print(selection)
+                taskObject = Task(selection[0],selection[1],selection[2])
+                modifyTask(taskObject, selection)
+                valid = True
+            elif choice2 == str(2):
+                removeTask(selection)
+                valid = True
+            else:
+                print('Invalid input, please enter the correct value:')
+                time.sleep(1)
+            
+    except IndexError as e:
+        print(f'{e}, please enter the correct value:')
+        time.sleep(1.5)
+        viewAllTasks()
+        return
+    except ValueError as e:
+        print(f'{e}, please enter the correct value:')
+        time.sleep(1.5)
+        viewAllTasks()
+        return
 
 
 def viewLastTask():
