@@ -13,5 +13,14 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('TaskManager')
 
-info = SHEET.worksheet('Sheet1')
+info = SHEET.worksheet('Tasks')
 
+
+def clear():
+
+    """
+    Clears the screen
+    :return:
+
+    """
+    os.system("clear")
