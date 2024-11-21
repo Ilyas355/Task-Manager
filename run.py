@@ -93,3 +93,20 @@ class Task:
                 print('1: Complete')
                 print('2: Incomplete\n')
                 Status = input('')
+
+    def UpdateDueDate(self):
+        clear()
+        valid = False
+        print('Current Task:\n')
+        print(
+            f"Content: {self.content},\nStatus: {self.status},\n"
+            f"Due Date: {self.dueDate}\n"
+        )
+        print('Enter a new due date for the task:')
+        DueDate = input('\n')
+        while valid is False:
+            if validateDate(DueDate) is True:
+                self.dueDate = DueDate
+                valid = True
+            else:
+                DueDate = input('')
