@@ -24,3 +24,11 @@ def clear():
 
     """
     os.system("clear")
+
+
+class Task:
+
+    def __init__(self, content, status, dueDate):
+        self.content = content
+        self.status = status
+        self.dueDate = dueDate
