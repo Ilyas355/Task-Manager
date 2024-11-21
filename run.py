@@ -25,6 +25,23 @@ def clear():
     """
     os.system("clear")
 
+def validateDate(date_text):
+    valid = False
+    try:
+        datetime.strptime(date_text, "%d/%m/%Y")
+        valid = True
+    except ValueError:
+        print('Incorrect data format, please follow this format DD/MM/YYYY')
+        return False
+
+    present = datetime.now()
+    dateGiven = datetime.strptime(date_text, "%d/%m/%Y")
+    if (dateGiven.date() < present.date()):
+        print('The date should not be a past date\n')
+        return False
+
+    return valid
+
 
 class Task:
 
@@ -110,3 +127,4 @@ class Task:
                 valid = True
             else:
                 DueDate = input('')
+
