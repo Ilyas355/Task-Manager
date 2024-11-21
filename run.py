@@ -32,3 +32,27 @@ class Task:
         self.content = content
         self.status = status
         self.dueDate = dueDate
+
+    def UpdateContent(self):
+        clear()
+        valid = False
+        print(
+            f"Current Task: \nContent: {self.content},\n"
+            f"Status: {self.status},\nDue Date: {self.dueDate}\n"
+        )
+        print('\nEnter the new content for the task\n')
+        Content = input('')
+        while valid is False:
+            if validateContent(Content):
+                self.content = Content
+                valid = True
+            else:
+                print('Invalid Input')
+                time.sleep(1)
+                clear()
+                print(
+                    f"Current Task:\nContent: {self.content},\n"
+                    f"Status: {self.status},\nDue Date: {self.dueDate}\n"
+                )
+                print('\nEnter the new content for the task\n')
+                Content = input('')
