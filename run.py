@@ -148,7 +148,54 @@ def removeTask(task):
 
 
 def modifyTask(taskObject, originalTask):
-    pass
+    valid = False
+    clear()
+    print('Modify Task')
+    print('Xx------------------------------------------------------xX\n')
+    print(
+        f"Task:\nContent: {taskObject.content},\nStatus: {taskObject.status},"
+        f"\nDue Date: {taskObject.dueDate}\n"
+    )
+    print('Selection an option to contine:\n')
+    print('1: Change the Content\n')
+    print('2: Change the Status\n')
+    print('3: Change the due date\n')
+    print('4: Confirm changes\n')
+    print('5: Return to main menu\n')
+    choice = input('')
+    if choice == str(1):
+        taskObject.UpdateContent()
+        modifyTask(taskObject, originalTask)
+    elif choice == str(2):
+        taskObject.UpdateStatus()
+        modifyTask(taskObject, originalTask)
+    elif choice == str(3):
+        taskObject.UpdateDueDate()
+        modifyTask(taskObject, originalTask)
+    elif choice == str(4):
+        while valid is False:
+            clear()
+            print('Would you like to confirm changes made to the task?\n')
+            print('Enter 1 for yes:')
+            print('Enter 2 for No:\n')
+            confirm = input('')
+            if confirm == str(1):
+                applyChanges(taskObject, originalTask)
+                break
+            elif confirm == str(2):
+                modifyTask(taskObject, originalTask)
+                break
+            else:
+                print('Invalid input')
+                time.sleep(1)
+
+    elif choice == str(5):
+        main()
+        return
+    else:
+        print('Invalid input, please choose a correct option')
+        time.sleep(1)
+        modifyTask(taskObject, originalTask)
 
 
 def viewAllTasks():
