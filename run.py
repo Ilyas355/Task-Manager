@@ -135,3 +135,22 @@ class Task:
             else:
                 DueDate = input('')
 
+
+def main():
+    clear()
+    print('Main Menu')
+    print('Xx------------------------------------------------------xX\n')
+    print('Selection an option from those below: \n')
+    print('1: Add Task\n')
+    print('2: View Tasks\n')
+    choice = input('')
+
+    if choice == str(1):
+        addTask()
+    elif choice == str(2):
+        viewTask()
+    else:
+        print('Invalid Entry Please Try again')
+        time.sleep(1)
+        main()
+
