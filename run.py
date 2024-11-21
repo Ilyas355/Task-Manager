@@ -176,7 +176,7 @@ def viewPastDueTasks():
 
 
 def backToMain():
-    pass
+    main()
 
 
 def viewTask():
