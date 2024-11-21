@@ -305,7 +305,26 @@ def viewCompletedTasks():
 
 
 def viewIncompletedTasks():
-    pass
+    clear()
+    print("View Incompleted Tasks:")
+    print('Xx------------------------------------------------------xX\n')
+    tasks = info.get_all_values()
+
+    tasks_vals = tasks[1:]
+    completeList = []
+    for val in tasks_vals:
+        if val[1] == 'Incomplete':
+            completeList.append(val)
+
+    for x in range(0, len(completeList)):
+        print(
+            f"Task: {x+1}\nContent: {completeList[x][0]},\n"
+            f"Status: {completeList[x][1]},\nDue Date: {completeList[x][2]}\n"
+        )
+
+    print("Enter the number of the task below to select a task:")
+    print("Enter 0 to return to the main menu:\n")
+    choice = input("")
 
 
 def viewDueTasks():
