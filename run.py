@@ -157,3 +157,33 @@ def main():
         time.sleep(1)
         main()
 
+
+if __name__ == "__main__":
+    print("""\
+
+    XX         XX XXXXXXX XX      XXXXXXX XXXXXXXX     XX   XX     XXXXXXX
+     XX   X   XX  XX      XX      XX      XX    XX    XXXX XXXX    XX     
+      XX XXX XX   XXXXXXX XX      XX      XX    XX   XX  XXX  XX   XXXXXXX
+       XXX XXX    XX      XX      XX      XX    XX  XX    X    XX  XX     
+        X   X     XXXXXXX XXXXXXX XXXXXXX XXXXXXXX XX           XX XXXXXXX
+
+                                                                                       
+                                                                       
+     XXXXXXXX XXXXXXX    XXXXXXXX    XX     XXXXXXX XX  XXX                
+        XX    XX   XX       XX      XXXX    XX      XX XXX                 
+        XX    XX   XX       XX     XX  XX   XXXXXXX XXXXX                  
+        XX    XX   XX       XX    XXXXXXXX       XX XX XXX                 
+        XX    XXXXXXX       XX   XX      XX XXXXXXX XX  XXX                
+
+
+
+         XX   XX         XX     XXX   XX     XX     XXXXXXXX XXXXXXX XXXXXXX
+        XXXX XXXX       XXXX    XXXX  XX    XXXX    XX       XX      XX   XX
+       XX  XXX  XX     XX  XX   XX XX XX   XX  XX   XX XXXXX XXXXXXX XX XXXX
+      XX    X    XX   XXXXXXXX  XX  XXXX  XXXXXXXX  XX     X XX      XX  XX 
+     XX           XX XX      XX XX   XXX XX      XX XXXXXXXX XXXXXXX XX   XX
+
+
+    """)
+    time.sleep(3)
+    main()
