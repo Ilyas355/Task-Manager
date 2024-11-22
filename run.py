@@ -154,6 +154,9 @@ def applyChanges(task, originalTask):
             row_index = i
             break
 
+    if row_index:
+        # Delete the row
+        info.delete_rows(row_index)
 
 
 def removeTask(task):
