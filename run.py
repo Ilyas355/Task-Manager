@@ -158,6 +158,17 @@ def applyChanges(task, originalTask):
         # Delete the row
         info.delete_rows(row_index)
 
+    info.append_row([task.content, task.status, task.dueDate])
+    
+    time.sleep(2)
+    clear()
+    print(
+        f"The task with content: {task.content},\n"
+        f"status: {task.status},\ndue date: {task.dueDate[2]} has been removed"
+    )
+    time.sleep(2)
+    main()
+
 
 def removeTask(task):
     clear()
