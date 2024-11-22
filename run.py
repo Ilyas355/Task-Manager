@@ -140,7 +140,20 @@ class Task:
 
 
 def applyChanges(task, originalTask):
-    pass
+    clear()
+    print('Applying changes...')
+    row_to_match = originalTask
+
+    # Get all rows
+    all_rows = info.get_all_values()
+
+    # Locate the row index
+    row_index = None
+    for i, row in enumerate(all_rows, start=1):  
+        if row == row_to_match:
+            row_index = i
+            break
+
 
 
 def removeTask(task):
