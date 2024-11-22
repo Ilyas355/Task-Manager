@@ -144,7 +144,21 @@ def applyChanges(task, originalTask):
 
 
 def removeTask(task):
-    pass
+    clear()
+    print('Delete Task')
+    print('Xx------------------------------------------------------xX\n')
+    row_to_match = task
+
+    # Get all rows
+    all_rows = info.get_all_values()
+
+    # Locate the row index
+    row_index = None
+    for i, row in enumerate(all_rows, start=1):
+        if row == row_to_match:
+            row_index = i
+            break
+
 
 
 def modifyTask(taskObject, originalTask):
