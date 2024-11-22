@@ -159,6 +159,15 @@ def removeTask(task):
             row_index = i
             break
 
+    if row_index:
+        # Delete the row
+        info.delete_rows(row_index)
+        print(
+            f"The task with content:{task[0]},\n"
+            f"status:{task[1]}\n, due date: {task[2]} has been removed\n"
+        )
+        time.sleep(2)
+        main()
 
 
 def modifyTask(taskObject, originalTask):
