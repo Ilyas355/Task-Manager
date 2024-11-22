@@ -28,6 +28,7 @@ def clear():
     """
     os.system("clear")
 
+
 def validateDate(date_text):
     valid = False
     try:
@@ -44,6 +45,7 @@ def validateDate(date_text):
         return False
 
     return valid
+
 
 def validateContent(content):
     valid = False
@@ -92,7 +94,7 @@ class Task:
             f"Status: {self.status},\nDue Date: {self.dueDate}\n"
         )
         print(
-            "Enter the correspoding number to change" 
+            "Enter the correspoding number to change"
             "the status of the task:\n"
         )
         print('1: Complete')
@@ -149,7 +151,7 @@ def applyChanges(task, originalTask):
 
     # Locate the row index
     row_index = None
-    for i, row in enumerate(all_rows, start=1):  
+    for i, row in enumerate(all_rows, start=1):
         if row == row_to_match:
             row_index = i
             break
@@ -265,7 +267,7 @@ def viewAllTasks():
             main()
             return
         selection = task_vals[int(choice) - 1]
-        valid=False
+        valid = False
         while valid is False:
             clear()
             print("View All Tasks:\n")
@@ -276,13 +278,13 @@ def viewAllTasks():
             print("\nTo modify the task, enter 1")
             print("To remove the task, enter 2")
             print("To return to the main menu, enter 0\n")
-            choice2=input("")
+            choice2 = input("")
             if choice2 == str(0):
                 main()
                 valid = True
             if choice2 == str(1):
                 print(selection)
-                taskObject = Task(selection[0],selection[1],selection[2])
+                taskObject = Task(selection[0], selection[1], selection[2])
                 modifyTask(taskObject, selection)
                 valid = True
             elif choice2 == str(2):
@@ -291,7 +293,7 @@ def viewAllTasks():
             else:
                 print('Invalid input, please enter the correct value:')
                 time.sleep(1)
-            
+
     except IndexError as e:
         print(f'{e}, please enter the correct value:')
         time.sleep(1.5)
@@ -309,7 +311,7 @@ def viewLastTask():
     print("View Last Task:\n")
     print('Xx------------------------------------------------------xX\n')
     task = info.get_all_values()
-    task_vals =task[-1]
+    task_vals = task[-1]
     print(
         f"Task:\nContent: {task_vals[0]},\nStatus: {task_vals[1]},"
         f"\nDue Date: {task_vals[2]}\n"
@@ -317,14 +319,14 @@ def viewLastTask():
     print("To modify the task, enter 1")
     print("To remove the task, enter 2")
     print("To return to the main menu, enter 0\n")
-    choice=input("")
+    choice = input("")
 
     if choice == str(0):
         main()
         return
     if choice == str(1):
         print(task_vals)
-        taskObject = Task(task_vals[0],task_vals[1],task_vals[2])
+        taskObject = Task(task_vals[0], task_vals[1], task_vals[2])
         modifyTask(taskObject, task_vals)
         return
     elif choice == str(2):
@@ -363,7 +365,7 @@ def viewCompletedTasks():
             main()
             return
         selection = completeList[int(choice) - 1]
-        valid=False
+        valid = False
         while valid is False:
             clear()
             print("View Completed Tasks:\n")
@@ -374,13 +376,13 @@ def viewCompletedTasks():
             print("\nTo modify the task, enter 1")
             print("To remove the task, enter 2")
             print("To return to the main menu, enter 0\n")
-            choice2=input("")
+            choice2 = input("")
             if choice2 == str(0):
                 main()
                 valid = True
             if choice2 == str(1):
                 print(selection)
-                taskObject = Task(selection[0],selection[1],selection[2])
+                taskObject = Task(selection[0], selection[1], selection[2])
                 modifyTask(taskObject, selection)
                 valid = True
             elif choice2 == str(2):
@@ -389,7 +391,7 @@ def viewCompletedTasks():
             else:
                 print('Invalid input, please enter the correct value:')
                 time.sleep(1)
-            
+
     except IndexError as e:
         print(f'{e}, please enter the correct value:')
         time.sleep(1.5)
@@ -424,7 +426,7 @@ def viewIncompletedTasks():
             main()
             return
         selection = completeList[int(choice) - 1]
-        valid=False
+        valid = False
         while valid is False:
             clear()
             print("View Incompleted Tasks:\n")
@@ -435,13 +437,13 @@ def viewIncompletedTasks():
             print("\nTo modify the task, enter 1")
             print("To remove the task, enter 2")
             print("To return to the main menu, enter 0\n")
-            choice2=input("")
+            choice2 = input("")
             if choice2 == str(0):
                 main()
                 valid = True
             if choice2 == str(1):
                 print(selection)
-                taskObject = Task(selection[0],selection[1],selection[2])
+                taskObject = Task(selection[0], selection[1], selection[2])
                 modifyTask(taskObject, selection)
                 valid = True
             elif choice2 == str(2):
@@ -450,7 +452,7 @@ def viewIncompletedTasks():
             else:
                 print('Invalid input, please enter the correct value:')
                 time.sleep(1)
-            
+
     except IndexError as e:
         print(f'{e}, please enter the correct value:')
         time.sleep(1.5)
@@ -487,7 +489,7 @@ def viewDueTasks():
             main()
             return
         selection = DueTaskList[int(choice) - 1]
-        valid=False
+        valid = False
         while valid is False:
             clear()
             print("View Due Tasks:\n")
@@ -498,13 +500,13 @@ def viewDueTasks():
             print("\nTo modify the task, enter 1")
             print("To remove the task, enter 2")
             print("To return to the main menu, enter 0\n")
-            choice2=input("")
+            choice2 = input("")
             if choice2 == str(0):
                 main()
                 valid = True
             if choice2 == str(1):
                 print(selection)
-                taskObject = Task(selection[0],selection[1],selection[2])
+                taskObject = Task(selection[0], selection[1], selection[2])
                 modifyTask(taskObject, selection)
                 valid = True
             elif choice2 == str(2):
@@ -513,7 +515,7 @@ def viewDueTasks():
             else:
                 print('Invalid input, please enter a correct value:')
                 time.sleep(1)
-            
+
     except IndexError as e:
         print(f'{e}, please enter the correct value:')
         time.sleep(1.5)
@@ -544,13 +546,13 @@ def viewPastDueTasks():
     print("Enter the number of the task below to select a task:")
     print("Enter 0 to return to the main menu:\n")
     choice = input("")
-    
+
     try:
         if choice == str(0):
             main()
             return
         selection = DueTaskList[int(choice) - 1]
-        valid=False
+        valid = False
         while valid is False:
             clear()
             print("View Past Due Tasks:\n")
@@ -561,13 +563,13 @@ def viewPastDueTasks():
             print("\nTo modify the task, enter 1")
             print("To remove the task, enter 2")
             print("To return to the main menu, enter 0\n")
-            choice2=input("")
+            choice2 = input("")
             if choice2 == str(0):
                 main()
                 valid = True
             if choice2 == str(1):
                 print(selection)
-                taskObject = Task(selection[0],selection[1],selection[2])
+                taskObject = Task(selection[0], selection[1], selection[2])
                 modifyTask(taskObject, selection)
                 valid = True
             elif choice2 == str(2):
@@ -576,7 +578,7 @@ def viewPastDueTasks():
             else:
                 print('Invalid input, please enter the correct value:')
                 time.sleep(1)
-            
+
     except IndexError as e:
         print(f'{e}, please enter the correct value:')
         time.sleep(1.5)
@@ -623,7 +625,7 @@ def viewTask():
 def addTask():
     clear()
     valid = False
-    valid2=False
+    valid2 = False
     print('Add Task')
     print('Xx------------------------------------------------------xX\n')
     print('Content:')
