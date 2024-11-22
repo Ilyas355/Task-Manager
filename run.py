@@ -159,13 +159,9 @@ def applyChanges(task, originalTask):
         info.delete_rows(row_index)
 
     info.append_row([task.content, task.status, task.dueDate])
-    
-    time.sleep(2)
+
     clear()
-    print(
-        f"The task with content: {task.content},\n"
-        f"status: {task.status},\ndue date: {task.dueDate[2]} has been removed"
-    )
+    print('Changes have been applied.')
     time.sleep(2)
     main()
 
@@ -545,6 +541,10 @@ def viewPastDueTasks():
             f"Status: {DueTaskList[x][1]},\nDue Date: {DueTaskList[x][2]}\n"
         )
 
+    print("Enter the number of the task below to select a task:")
+    print("Enter 0 to return to the main menu:\n")
+    choice = input("")
+    
     try:
         if choice == str(0):
             main()
@@ -650,7 +650,7 @@ def addTask():
     confirm = input('')
     while valid2 is False:
         if confirm == str(1):
-            info.append_row([task.content, tas.status, task.dueDate])
+            info.append_row([task.content, task.status, task.dueDate])
             valid2 = True
         elif confirm == str(2):
             main()
