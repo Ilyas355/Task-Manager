@@ -271,6 +271,7 @@ def viewAllTasks():
         while valid is False:
             clear()
             print("View All Tasks:\n")
+            print('Xx------------------------------------------------------xX\n')
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -369,6 +370,7 @@ def viewCompletedTasks():
         while valid is False:
             clear()
             print("View Completed Tasks:\n")
+            print('Xx------------------------------------------------------xX\n')
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -430,6 +432,7 @@ def viewIncompletedTasks():
         while valid is False:
             clear()
             print("View Incompleted Tasks:\n")
+            print('Xx------------------------------------------------------xX\n')
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -493,6 +496,7 @@ def viewDueTasks():
         while valid is False:
             clear()
             print("View Due Tasks:\n")
+            print('Xx------------------------------------------------------xX\n')
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -556,6 +560,7 @@ def viewPastDueTasks():
         while valid is False:
             clear()
             print("View Past Due Tasks:\n")
+            print('Xx------------------------------------------------------xX\n')
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -592,7 +597,7 @@ def backToMain():
 
 def viewTask():
     clear()
-    print('View Task')
+    print('View Tasks Menu')
     print('Xx------------------------------------------------------xX\n')
     print('Selection an option from those below: \n')
     print('1: View All Tasks\n')
