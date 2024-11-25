@@ -271,7 +271,10 @@ def viewAllTasks():
         while valid is False:
             clear()
             print("View All Tasks:\n")
-            print('Xx------------------------------------------------------xX\n')
+            print(
+                "Xx-------------------------"
+                "-----------------------------xX\n"
+            )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -370,7 +373,10 @@ def viewCompletedTasks():
         while valid is False:
             clear()
             print("View Completed Tasks:\n")
-            print('Xx------------------------------------------------------xX\n')
+            print(
+                "Xx--------------------------"
+                "----------------------------xX\n"
+            )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -432,7 +438,10 @@ def viewIncompletedTasks():
         while valid is False:
             clear()
             print("View Incompleted Tasks:\n")
-            print('Xx------------------------------------------------------xX\n')
+            print(
+                "Xx-------------------------"
+                "-----------------------------xX\n"
+            )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -496,7 +505,10 @@ def viewDueTasks():
         while valid is False:
             clear()
             print("View Due Tasks:\n")
-            print('Xx------------------------------------------------------xX\n')
+            print(
+                "Xx---------------------------"
+                "---------------------------xX\n"
+            )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -560,7 +572,10 @@ def viewPastDueTasks():
         while valid is False:
             clear()
             print("View Past Due Tasks:\n")
-            print('Xx------------------------------------------------------xX\n')
+            print(
+                "Xx----------------------------"
+                "--------------------------xX\n"
+            )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -693,25 +708,25 @@ if __name__ == "__main__":
     print("""\
 
     XX         XX XXXXXXX XX      XXXXXXX XXXXXXXX     XX   XX     XXXXXXX
-     XX   X   XX  XX      XX      XX      XX    XX    XXXX XXXX    XX     
+     XX   X   XX  XX      XX      XX      XX    XX    XXXX XXXX    XX
       XX XXX XX   XXXXXXX XX      XX      XX    XX   XX  XXX  XX   XXXXXXX
-       XXX XXX    XX      XX      XX      XX    XX  XX    X    XX  XX     
+       XXX XXX    XX      XX      XX      XX    XX  XX    X    XX  XX
         X   X     XXXXXXX XXXXXXX XXXXXXX XXXXXXXX XX           XX XXXXXXX
 
                                                                                        
                                                                        
-     XXXXXXXX XXXXXXX    XXXXXXXX    XX     XXXXXXX XX  XXX                
-        XX    XX   XX       XX      XXXX    XX      XX XXX                 
-        XX    XX   XX       XX     XX  XX   XXXXXXX XXXXX                  
-        XX    XX   XX       XX    XXXXXXXX       XX XX XXX                 
-        XX    XXXXXXX       XX   XX      XX XXXXXXX XX  XXX                
+     XXXXXXXX XXXXXXX    XXXXXXXX    XX     XXXXXXX XX  XXX
+        XX    XX   XX       XX      XXXX    XX      XX XXX
+        XX    XX   XX       XX     XX  XX   XXXXXXX XXXXX
+        XX    XX   XX       XX    XXXXXXXX       XX XX XXX
+        XX    XXXXXXX       XX   XX      XX XXXXXXX XX  XXX
 
 
 
          XX   XX         XX     XXX   XX     XX     XXXXXXXX XXXXXXX XXXXXXX
         XXXX XXXX       XXXX    XXXX  XX    XXXX    XX       XX      XX   XX
        XX  XXX  XX     XX  XX   XX XX XX   XX  XX   XX XXXXX XXXXXXX XX XXXX
-      XX    X    XX   XXXXXXXX  XX  XXXX  XXXXXXXX  XX     X XX      XX  XX 
+      XX    X    XX   XXXXXXXX  XX  XXXX  XXXXXXXX  XX     X XX      XX  XX
      XX           XX XX      XX XX   XXX XX      XX XXXXXXXX XXXXXXX XX   XX
 
 
