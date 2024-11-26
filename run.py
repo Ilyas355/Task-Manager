@@ -4,6 +4,7 @@ from pprint import pprint
 import time
 import os
 from datetime import datetime
+from colorama import Fore, Back, Style
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -35,7 +36,7 @@ def validateDate(date_text):
         datetime.strptime(date_text, "%d/%m/%Y")
         valid = True
     except ValueError:
-        print('Incorrect data format, please follow this format DD/MM/YYYY')
+        print(Fore.RED + 'Incorrect data format, please follow this format DD/MM/YYYY')
         return False
 
     present = datetime.now()
@@ -76,7 +77,7 @@ class Task:
                 self.content = Content
                 valid = True
             else:
-                print('Invalid Input')
+                print(Fore.RED + 'Invalid Input')
                 time.sleep(1)
                 clear()
                 print(
@@ -108,7 +109,7 @@ class Task:
                 self.status = 'Incomplete'
                 valid = True
             else:
-                print('Invalid Input')
+                print(Fore.RED + 'Invalid Input')
                 time.sleep(1)
                 clear()
                 print(
@@ -143,7 +144,7 @@ class Task:
 
 def applyChanges(task, originalTask):
     clear()
-    print('Applying changes...')
+    print(Fore.GREEN + 'Applying changes...')
     row_to_match = originalTask
 
     # Get all rows
@@ -163,8 +164,8 @@ def applyChanges(task, originalTask):
     info.append_row([task.content, task.status, task.dueDate])
 
     clear()
-    print('Changes have been applied.')
-    time.sleep(2)
+    print(Fore.GREEN + 'Changes have been applied.')
+    time.sleep(1)
     main()
 
 
@@ -234,21 +235,21 @@ def modifyTask(taskObject, originalTask):
                 modifyTask(taskObject, originalTask)
                 break
             else:
-                print('Invalid input')
+                print(Fore.RED + 'Invalid input')
                 time.sleep(1)
 
     elif choice == str(5):
         main()
         return
     else:
-        print('Invalid input, please choose a correct option')
+        print(Fore.RED + 'Invalid input, please choose a correct option')
         time.sleep(1)
         modifyTask(taskObject, originalTask)
 
 
 def viewAllTasks():
     clear()
-    print("View All Tasks:")
+    print(Fore.WHITE + "View All Tasks:")
     print('Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
     task_vals = tasks[1:]
@@ -262,8 +263,8 @@ def viewAllTasks():
             f"Status: {task_vals[x][1]},\nDue Date: {task_vals[x][2]}\n"
         )
 
-    print("Enter the number of the task below to select a task:")
-    print("Enter 0 to return to the main menu:\n")
+    print(Fore.WHITE + "Enter the number of the task below to select a task:")
+    print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
     choice = input("")
 
     try:
@@ -274,18 +275,18 @@ def viewAllTasks():
         valid = False
         while valid is False:
             clear()
-            print("View All Tasks:\n")
+            print(Fore.WHITE + "View All Tasks:\n")
             print(
-                "Xx-------------------------"
+                Fore.WHITE + "Xx-------------------------"
                 "-----------------------------xX\n"
             )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
             )
-            print("\nTo modify the task, enter 1")
-            print("To remove the task, enter 2")
-            print("To return to the main menu, enter 0\n")
+            print(Fore.WHITE + "\nTo modify the task, enter 1")
+            print(Fore.WHITE + "To remove the task, enter 2")
+            print(Fore.WHITE + "To return to the main menu, enter 0\n")
             choice2 = input("")
             if choice2 == str(0):
                 main()
@@ -299,16 +300,16 @@ def viewAllTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print('Invalid input, please enter the correct value:')
+                print(Fore.RED + 'Invalid input, please enter the correct value:')
                 time.sleep(1)
 
     except IndexError as e:
-        print(f'{e}, please enter the correct value:')
+        print(Fore.RED + f'{e}, please enter the correct value:')
         time.sleep(1.5)
         viewAllTasks()
         return
     except ValueError as e:
-        print(f'{e}, please enter the correct value:')
+        print(Fore.RED + f'{e}, please enter the correct value:')
         time.sleep(1.5)
         viewAllTasks()
         return
@@ -316,7 +317,7 @@ def viewAllTasks():
 
 def viewLastTask():
     clear()
-    print("View Last Task:\n")
+    print(Fore.WHITE + "View Last Task:\n")
     print('Xx------------------------------------------------------xX\n')
     task = info.get_all_values()
     task_vals = task[-1]
@@ -324,9 +325,9 @@ def viewLastTask():
         f"Task:\nContent: {task_vals[0]},\nStatus: {task_vals[1]},"
         f"\nDue Date: {task_vals[2]}\n"
     )
-    print("To modify the task, enter 1")
-    print("To remove the task, enter 2")
-    print("To return to the main menu, enter 0\n")
+    print(Fore.WHITE + "To modify the task, enter 1")
+    print(Fore.WHITE + "To remove the task, enter 2")
+    print(Fore.WHITE + "To return to the main menu, enter 0\n")
     choice = input("")
 
     if choice == str(0):
@@ -341,15 +342,15 @@ def viewLastTask():
         print(task_vals)
         removeTask(task_vals)
     else:
-        print('Invalid input, please enter the correct value:')
+        print(Fore.RED + 'Invalid input, please enter the correct value:')
         time.sleep(1.5)
         viewLastTask()
 
 
 def viewCompletedTasks():
     clear()
-    print("View Completed Tasks:")
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + "View Completed Tasks:")
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -367,8 +368,8 @@ def viewCompletedTasks():
             f"Status: {completeList[x][1]},\nDue Date: {completeList[x][2]}\n"
         )
 
-    print("Enter the number of the task below to select a task:")
-    print("Enter 0 to return to the main menu:\n")
+    print(Fore.WHITE + "Enter the number of the task below to select a task:")
+    print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
     choice = input("")
 
     try:
@@ -379,18 +380,18 @@ def viewCompletedTasks():
         valid = False
         while valid is False:
             clear()
-            print("View Completed Tasks:\n")
+            print(Fore.WHITE + "View Completed Tasks:\n")
             print(
-                "Xx--------------------------"
+                Fore.WHITE + "Xx--------------------------"
                 "----------------------------xX\n"
             )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
             )
-            print("\nTo modify the task, enter 1")
-            print("To remove the task, enter 2")
-            print("To return to the main menu, enter 0\n")
+            print(Fore.WHITE + "\nTo modify the task, enter 1")
+            print(Fore.WHITE + "To remove the task, enter 2")
+            print(Fore.WHITE + "To return to the main menu, enter 0\n")
             choice2 = input("")
             if choice2 == str(0):
                 main()
@@ -404,11 +405,11 @@ def viewCompletedTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print('Invalid input, please enter the correct value:')
+                print(Fore.RED + 'Invalid input, please enter the correct value:')
                 time.sleep(1)
 
     except IndexError as e:
-        print(f'{e}, please enter the correct value:')
+        print(Fore.RED + f'{e}, please enter the correct value:')
         time.sleep(1.5)
         viewCompletedTasks()
         return
@@ -416,8 +417,8 @@ def viewCompletedTasks():
 
 def viewIncompletedTasks():
     clear()
-    print("View Incompleted Tasks:")
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + "View Incompleted Tasks:")
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -435,8 +436,8 @@ def viewIncompletedTasks():
             f"Status: {completeList[x][1]},\nDue Date: {completeList[x][2]}\n"
         )
 
-    print("Enter the number of the task below to select a task:")
-    print("Enter 0 to return to the main menu:\n")
+    print(Fore.WHITE + "Enter the number of the task below to select a task:")
+    print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
     choice = input("")
 
     try:
@@ -447,18 +448,18 @@ def viewIncompletedTasks():
         valid = False
         while valid is False:
             clear()
-            print("View Incompleted Tasks:\n")
+            print(Fore.WHITE + "View Incompleted Tasks:\n")
             print(
-                "Xx-------------------------"
+                Fore.WHITE + "Xx-------------------------"
                 "-----------------------------xX\n"
             )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
             )
-            print("\nTo modify the task, enter 1")
-            print("To remove the task, enter 2")
-            print("To return to the main menu, enter 0\n")
+            print(Fore.WHITE + "\nTo modify the task, enter 1")
+            print(Fore.WHITE + "To remove the task, enter 2")
+            print(Fore.WHITE + "To return to the main menu, enter 0\n")
             choice2 = input("")
             if choice2 == str(0):
                 main()
@@ -472,11 +473,11 @@ def viewIncompletedTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print('Invalid input, please enter the correct value:')
+                print(Fore.RED + 'Invalid input, please enter the correct value:')
                 time.sleep(1)
 
     except IndexError as e:
-        print(f'{e}, please enter the correct value:')
+        print(Fore.RED + f'{e}, please enter the correct value:')
         time.sleep(1.5)
         viewIncompletedTasks()
         return
@@ -488,8 +489,8 @@ def viewDueTasks():
     docstrings and does nothing really
     """
     clear()
-    print("View Due Tasks:")
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + "View Due Tasks:")
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -510,8 +511,8 @@ def viewDueTasks():
             f"Status: {DueTaskList[x][1]},\nDue Date: {DueTaskList[x][2]}\n"
         )
 
-    print("Enter the number of the task below to select a task:")
-    print("Enter 0 to return to the main menu:\n")
+    print(Fore.WHITE + "Enter the number of the task below to select a task:")
+    print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
     choice = input("")
 
     try:
@@ -522,18 +523,18 @@ def viewDueTasks():
         valid = False
         while valid is False:
             clear()
-            print("View Due Tasks:\n")
+            print(Fore.WHITE + "View Due Tasks:\n")
             print(
-                "Xx---------------------------"
+                Fore.WHITE + "Xx---------------------------"
                 "---------------------------xX\n"
             )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
             )
-            print("\nTo modify the task, enter 1")
-            print("To remove the task, enter 2")
-            print("To return to the main menu, enter 0\n")
+            print(Fore.WHITE + "\nTo modify the task, enter 1")
+            print(Fore.WHITE + "To remove the task, enter 2")
+            print(Fore.WHITE + "To return to the main menu, enter 0\n")
             choice2 = input("")
             if choice2 == str(0):
                 main()
@@ -547,11 +548,11 @@ def viewDueTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print('Invalid input, please enter a correct value:')
+                print(Fore.RED + 'Invalid input, please enter a correct value:')
                 time.sleep(1)
 
     except IndexError as e:
-        print(f'{e}, please enter the correct value:')
+        print(Fore.RED + f'{e}, please enter the correct value:')
         time.sleep(1.5)
         viewDueTasks()
         return
@@ -559,8 +560,8 @@ def viewDueTasks():
 
 def viewPastDueTasks():
     clear()
-    print("View Past Due Tasks:")
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + "View Past Due Tasks:")
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -580,8 +581,8 @@ def viewPastDueTasks():
             f"Status: {DueTaskList[x][1]},\nDue Date: {DueTaskList[x][2]}\n"
         )
 
-    print("Enter the number of the task below to select a task:")
-    print("Enter 0 to return to the main menu:\n")
+    print(Fore.WHITE + "Enter the number of the task below to select a task:")
+    print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
     choice = input("")
 
     try:
@@ -594,16 +595,16 @@ def viewPastDueTasks():
             clear()
             print("View Past Due Tasks:\n")
             print(
-                "Xx----------------------------"
+                Fore.WHITE + "Xx----------------------------"
                 "--------------------------xX\n"
             )
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
             )
-            print("\nTo modify the task, enter 1")
-            print("To remove the task, enter 2")
-            print("To return to the main menu, enter 0\n")
+            print(Fore.WHITE + "\nTo modify the task, enter 1")
+            print(Fore.WHITE + "To remove the task, enter 2")
+            print(Fore.WHITE + "To return to the main menu, enter 0\n")
             choice2 = input("")
             if choice2 == str(0):
                 main()
@@ -617,11 +618,11 @@ def viewPastDueTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print('Invalid input, please enter the correct value:')
+                print(Fore.RED + 'Invalid input, please enter the correct value:')
                 time.sleep(1)
 
     except IndexError as e:
-        print(f'{e}, please enter the correct value:')
+        print(Fore.RED + f'{e}, please enter the correct value:')
         time.sleep(1.5)
         viewPastDueTasks()
         return
@@ -633,16 +634,16 @@ def backToMain():
 
 def viewTask():
     clear()
-    print('View Tasks Menu')
-    print('Xx------------------------------------------------------xX\n')
-    print('Selection an option from those below: \n')
-    print('1: View All Tasks\n')
-    print('2: View Last Task\n')
-    print('3: View Completed Tasks\n')
-    print('4: View Incompleted Tasks\n')
-    print('5: View Due Tasks\n')
-    print('6: View Past Due Tasks\n')
-    print('7: Back to main\n')
+    print(Fore.WHITE + 'View Tasks Menu')
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Selection an option from those below: \n')
+    print(Fore.WHITE + '1: View All Tasks\n')
+    print(Fore.WHITE + '2: View Last Task\n')
+    print(Fore.WHITE + '3: View Completed Tasks\n')
+    print(Fore.WHITE + '4: View Incompleted Tasks\n')
+    print(Fore.WHITE + '5: View Due Tasks\n')
+    print(Fore.WHITE + '6: View Past Due Tasks\n')
+    print(Fore.WHITE + '7: Back to main\n')
     choice = input('')
     if choice == str(1):
         viewAllTasks()
@@ -659,7 +660,7 @@ def viewTask():
     elif choice == str(7):
         backToMain()
     else:
-        print('Invalid input, please enter a correct value:')
+        print(Fore.RED + 'Invalid input, please enter a correct value:')
         viewTask()
 
 
@@ -667,11 +668,11 @@ def addTask():
     clear()
     valid = False
     valid2 = False
-    print('Add Task')
-    print('Xx------------------------------------------------------xX\n')
-    print('Content:')
-    taskContent = input("\nEnter the content of the new task:\n")
-    print('\nDue Date:')
+    print(Fore.WHITE + 'Add Task')
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Content:')
+    taskContent = input(Fore.WHITE + "\nEnter the content of the new task:\n")
+    print(Fore.WHITE + '\nDue Date:')
     print('Enter the due date of the new task:')
     taskDueDate = input("\n")
     while valid is False:
@@ -682,24 +683,30 @@ def addTask():
             taskDueDate = input('\n')
     clear()
 
-    print('Current Task:\n')
-    print(f"content: {task.content}")
-    print(f"status: {task.status}")
-    print(f"due date: {task.dueDate}\n")
+    print(Fore.WHITE + 'Current Task:\n')
+    print(Fore.WHITE + f"content: {task.content}")
+    print(Fore.WHITE + f"status: {task.status}")
+    print(Fore.WHITE + f"due date: {task.dueDate}\n")
 
-    print('Would you like to confirm changes made to the task?\n')
-    print('Enter 1 for yes:')
-    print('Enter 2 for No:\n')
+    print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
+    print(Fore.WHITE + 'Enter 1 for yes:')
+    print(Fore.WHITE + 'Enter 2 for No:\n')
     confirm = input('')
     while valid2 is False:
         if confirm == str(1):
+            clear()
+            print(Fore.GREEN + "Applying Changes")
+            time.sleep(1)
+            clear()
             info.append_row([task.content, task.status, task.dueDate])
+            print(Fore.GREEN + "Changes have been applied")
+            time.sleep(1)
             valid2 = True
         elif confirm == str(2):
             main()
             break
         else:
-            print('Invalid input')
+            print(Fore.RED + 'Invalid input')
             confirm = input('')
             time.sleep(1)
 
@@ -708,11 +715,11 @@ def addTask():
 
 def main():
     clear()
-    print('Main Menu')
-    print('Xx------------------------------------------------------xX\n')
-    print('Selection an option from those below: \n')
-    print('1: Add Task\n')
-    print('2: View Tasks\n')
+    print(Fore.WHITE + 'Main Menu')
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Selection an option from those below: \n')
+    print(Fore.WHITE + '1: Add Task\n')
+    print(Fore.WHITE + '2: View Tasks\n')
     choice = input('')
 
     if choice == str(1):
@@ -720,13 +727,13 @@ def main():
     elif choice == str(2):
         viewTask()
     else:
-        print('Invalid Entry Please Try again')
+        print(Fore.RED + 'Invalid Entry Please Try again')
         time.sleep(1)
         main()
 
 
 if __name__ == "__main__":
-    print("""\
+    print(Fore.WHITE + """\
 
     XX         XX XXXXXXX XX      XXXXXXX XXXXXXXX     XX   XX     XXXXXXX
      XX   X   XX  XX      XX      XX      XX    XX    XXXX XXXX    XX
