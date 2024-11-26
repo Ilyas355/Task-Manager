@@ -252,6 +252,7 @@ def viewAllTasks():
     print('Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
     task_vals = tasks[1:]
+
     for x in range(0, len(task_vals)):
         print(
             f"Task: {x+1}\nContent: {task_vals[x][0]},\n"
@@ -473,6 +474,10 @@ def viewIncompletedTasks():
 
 
 def viewDueTasks():
+    """
+    Demonstrates triple double quotes
+    docstrings and does nothing really
+    """
     clear()
     print("View Due Tasks:")
     print('Xx------------------------------------------------------xX\n')
@@ -552,6 +557,9 @@ def viewPastDueTasks():
         dateGiven = datetime.strptime(val[2], "%d/%m/%Y")
         if (dateGiven.date() < present.date()):
             DueTaskList.append(val)
+
+    dates = sorted(DueTaskList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    DueTaskList = dates
 
     for x in range(0, len(DueTaskList)):
         print(
