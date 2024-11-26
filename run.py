@@ -252,6 +252,9 @@ def viewAllTasks():
     print('Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
     task_vals = tasks[1:]
+    dates = sorted(task_vals, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    task_vals = dates
+
 
     for x in range(0, len(task_vals)):
         print(
@@ -355,6 +358,9 @@ def viewCompletedTasks():
         if val[1] == 'Complete':
             completeList.append(val)
 
+    dates = sorted(completeList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    completeList = dates
+
     for x in range(0, len(completeList)):
         print(
             f"Task: {x+1}\nContent: {completeList[x][0]},\n"
@@ -419,6 +425,9 @@ def viewIncompletedTasks():
     for val in tasks_vals:
         if val[1] == 'Incomplete':
             completeList.append(val)
+
+    dates = sorted(completeList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    completeList = dates
 
     for x in range(0, len(completeList)):
         print(
@@ -490,6 +499,10 @@ def viewDueTasks():
         dateGiven = datetime.strptime(val[2], "%d/%m/%Y")
         if (dateGiven.date() > present.date()):
             DueTaskList.append(val)
+
+    dates = sorted(DueTaskList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    DueTaskList = dates
+
 
     for x in range(0, len(DueTaskList)):
         print(
