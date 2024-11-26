@@ -170,30 +170,47 @@ def applyChanges(task, originalTask):
 
 
 def removeTask(task):
+    valid =False
     clear()
     print('Delete Task')
     print('Xx------------------------------------------------------xX\n')
-    row_to_match = task
+    while valid is False:
+            clear()
+            print('Would you like to confirm changes made to the task?\n')
+            print('Enter 1 for yes:')
+            print('Enter 2 for No:\n')
+            confirm = input('')
+            if confirm == str(1):
 
-    # Get all rows
-    all_rows = info.get_all_values()
+                row_to_match = task
 
-    # Locate the row index
-    row_index = None
-    for i, row in enumerate(all_rows, start=1):
-        if row == row_to_match:
-            row_index = i
-            break
+                # Get all rows
+                all_rows = info.get_all_values()
 
-    if row_index:
-        # Delete the row
-        info.delete_rows(row_index)
-        print(
-            f"The task with content:{task[0]},\n"
-            f"status:{task[1]}\n, due date: {task[2]} has been removed\n"
-        )
-        time.sleep(2)
-        main()
+                # Locate the row index
+                row_index = None
+                for i, row in enumerate(all_rows, start=1):
+                    if row == row_to_match:
+                        row_index = i
+                        break
+
+                if row_index:
+                    # Delete the row
+                    info.delete_rows(row_index)
+                    print(
+                        Fore.GREEN + f"The task with content:{task[0]},\n"
+                        f"status:{task[1]}\n, due date: {task[2]} has been removed\n"
+                    )
+                    time.sleep(2)
+                    main()                
+                valid = True
+            elif confirm == str(2):
+                main()
+                valid = True
+            else:
+                print(Fore.RED + 'Invalid input')
+                time.sleep(1)
+
 
 
 def modifyTask(taskObject, originalTask):
