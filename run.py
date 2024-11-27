@@ -37,12 +37,14 @@ def validateDate(date_text):
         valid = True
     except ValueError:
         print(Fore.RED + 'Incorrect data format, please follow this format DD/MM/YYYY')
+        time.sleep(1.5)
         return False
 
     present = datetime.now()
     dateGiven = datetime.strptime(date_text, "%d/%m/%Y")
     if (dateGiven.date() < present.date()):
-        print('The date should not be a past date\n')
+        print(Fore.RED + 'Invalid Input, the date should not be a past date\n')
+        time.sleep(1.5)
         return False
 
     return valid
@@ -53,6 +55,8 @@ def validateContent(content):
     if all(x.isalpha() or x.isspace() for x in content):
         return True
     else:
+        print(Fore.RED + "Invalid input, content must only contain alphanumeric letters")
+        time.sleep(1.5)
         return False
 
 
@@ -73,15 +77,14 @@ class Task:
         print('\nEnter the new content for the task\n')
         Content = input('')
         while valid is False:
-            if validateContent(Content):
+            if validateContent(Content) is True:
                 self.content = Content
                 valid = True
             else:
-                print(Fore.RED + 'Invalid Input')
                 time.sleep(1)
                 clear()
                 print(
-                    f"Current Task:\nContent: {self.content},\n"
+                    Fore.WHITE + f"Current Task:\nContent: {self.content},\n"
                     f"Status: {self.status},\nDue Date: {self.dueDate}\n"
                 )
                 print('\nEnter the new content for the task\n')
@@ -113,7 +116,7 @@ class Task:
                 time.sleep(1)
                 clear()
                 print(
-                    f"Current Task:\nContent: {self.content},\n"
+                    Fore.WHITE + f"Current Task:\nContent: {self.content},\n"
                     f"Status: {self.status},\nDue Date: {self.dueDate}\n"
                 )
                 print(
@@ -139,7 +142,14 @@ class Task:
                 self.dueDate = DueDate
                 valid = True
             else:
-                DueDate = input('')
+                clear()
+                print(Fore.WHITE + 'Current Task:\n')
+                print(
+                    f"Content: {self.content},\nStatus: {self.status},\n"
+                    f"Due Date: {self.dueDate}\n"
+                )
+                print('Enter a new due date for the task:')
+                DueDate = input('\n')
 
 
 def applyChanges(task, originalTask):
@@ -176,7 +186,7 @@ def removeTask(task):
     print('Xx------------------------------------------------------xX\n')
     while valid is False:
             clear()
-            print('Would you like to confirm changes made to the task?\n')
+            print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
             print('Enter 1 for yes:')
             print('Enter 2 for No:\n')
             confirm = input('')
@@ -216,7 +226,7 @@ def removeTask(task):
 def modifyTask(taskObject, originalTask):
     valid = False
     clear()
-    print('Modify Task')
+    print(Fore.WHITE + 'Modify Task')
     print('Xx------------------------------------------------------xX\n')
     print(
         f"Task:\nContent: {taskObject.content},\nStatus: {taskObject.status},"
@@ -241,7 +251,7 @@ def modifyTask(taskObject, originalTask):
     elif choice == str(4):
         while valid is False:
             clear()
-            print('Would you like to confirm changes made to the task?\n')
+            print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
             print('Enter 1 for yes:')
             print('Enter 2 for No:\n')
             confirm = input('')
@@ -678,6 +688,7 @@ def viewTask():
         backToMain()
     else:
         print(Fore.RED + 'Invalid input, please enter a correct value:')
+        time.sleep(1.5)
         viewTask()
 
 
@@ -685,21 +696,39 @@ def addTask():
     clear()
     valid = False
     valid2 = False
+    valid3 = False
     print(Fore.WHITE + 'Add Task')
     print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     print(Fore.WHITE + 'Content:')
     taskContent = input(Fore.WHITE + "\nEnter the content of the new task:\n")
-    print(Fore.WHITE + '\nDue Date:')
-    print('Enter the due date of the new task:')
-    taskDueDate = input("\n")
     while valid is False:
-        if validateDate(taskDueDate) is True:
-            task = Task(taskContent, 'Incomplete', taskDueDate)
+        if validateContent(taskContent) is True:
             valid = True
         else:
-            taskDueDate = input('\n')
+            clear()
+            print(Fore.WHITE + 'Add Task')
+            print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+            print(Fore.WHITE + 'Content:')
+            taskContent = input(Fore.WHITE + "\nEnter the content of the new task:\n")
+    print(Fore.WHITE + '\nDue Date:')
+    print('Enter the due date of the new task:')
+    taskDueDate = input("")
+    while valid2 is False:
+        if validateDate(taskDueDate) is True:
+            task = Task(taskContent, 'Incomplete', taskDueDate)
+            print(task.content)
+            valid2 = True
+        else:
+            clear()
+            print(Fore.WHITE + 'Add Task')
+            print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+            print(Fore.WHITE + 'Content:')
+            print(Fore.WHITE + "\nEnter the content of the new task:")
+            print(f"{taskContent}\n")
+            print(Fore.WHITE + 'Due Date:')
+            print('Enter the due date of the new task:')
+            taskDueDate = input(Fore.WHITE + '\n')
     clear()
-
     print(Fore.WHITE + 'Current Task:\n')
     print(Fore.WHITE + f"content: {task.content}")
     print(Fore.WHITE + f"status: {task.status}")
@@ -709,7 +738,7 @@ def addTask():
     print(Fore.WHITE + 'Enter 1 for yes:')
     print(Fore.WHITE + 'Enter 2 for No:\n')
     confirm = input('')
-    while valid2 is False:
+    while valid3 is False:
         if confirm == str(1):
             clear()
             print(Fore.GREEN + "Applying Changes")
@@ -718,7 +747,7 @@ def addTask():
             info.append_row([task.content, task.status, task.dueDate])
             print(Fore.GREEN + "Changes have been applied")
             time.sleep(1)
-            valid2 = True
+            valid3 = True
         elif confirm == str(2):
             main()
             break
@@ -744,7 +773,7 @@ def main():
     elif choice == str(2):
         viewTask()
     else:
-        print(Fore.RED + 'Invalid Entry Please Try again')
+        print(Fore.RED + 'Invalid entry, please try again')
         time.sleep(1)
         main()
 
