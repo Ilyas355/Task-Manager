@@ -31,6 +31,11 @@ def clear():
 
 
 def validateDate(date_text):
+    """
+    Checks if date is valid
+    :returns: True or false
+
+    """
     valid = False
     try:
         datetime.strptime(date_text, "%d/%m/%Y")
@@ -54,6 +59,11 @@ def validateDate(date_text):
 
 
 def validateContent(content):
+    """
+    Checks if content is valid
+    :returns: True or false
+
+    """
     valid = False
     if all(x.isalpha() or x.isspace() for x in content):
         return True
@@ -74,6 +84,9 @@ class Task:
         self.dueDate = dueDate
 
     def UpdateContent(self):
+        """
+        Updates the content of the task object
+        """
         clear()
         valid = False
         print(
@@ -97,6 +110,9 @@ class Task:
                 Content = input('')
 
     def UpdateStatus(self):
+        """
+        Updates the status of the task object (complete or incomplete)
+        """
         clear()
         valid = False
         print(
@@ -134,6 +150,9 @@ class Task:
                 Status = input('')
 
     def UpdateDueDate(self):
+        """
+        Updates the date of the task object
+        """
         clear()
         valid = False
         print('Current Task:\n')
@@ -159,6 +178,10 @@ class Task:
 
 
 def applyChanges(task, originalTask):
+    """
+    Updates the spreadsheet with the new task. 
+    Takes in the object and list form of the task.
+    """
     clear()
     print(Fore.GREEN + 'Applying changes...')
     row_to_match = originalTask
@@ -186,6 +209,9 @@ def applyChanges(task, originalTask):
 
 
 def removeTask(task):
+    """
+    Removes the task passed into the function from the spreadsheet
+    """
     valid = False
     clear()
     print('Delete Task')
@@ -233,6 +259,10 @@ def removeTask(task):
 
 
 def modifyTask(taskObject, originalTask):
+    """
+    Takes in the object and list version of the task to be changed.
+    Then displays the modify task menu to change the given task.
+    """
     valid = False
     clear()
     print(Fore.WHITE + 'Modify Task')
@@ -287,6 +317,9 @@ def modifyTask(taskObject, originalTask):
 
 
 def viewAllTasks():
+    """
+    Displays all tasks in the spreadsheet and prompt user to select a task.
+    """
     clear()
     print(Fore.WHITE + "View All Tasks:")
     print('Xx------------------------------------------------------xX\n')
@@ -359,6 +392,9 @@ def viewAllTasks():
 
 
 def viewLastTask():
+    """
+    Displays the last task in the spreadsheet and prompt user to select a task.
+    """
     clear()
     print(Fore.WHITE + "View Last Task:\n")
     print('Xx------------------------------------------------------xX\n')
@@ -391,6 +427,10 @@ def viewLastTask():
 
 
 def viewCompletedTasks():
+    """
+    Displays the completed tasks in the spreadsheet 
+    and prompt user to select a task.
+    """
     clear()
     print(Fore.WHITE + "View Completed Tasks:")
     print(
@@ -467,6 +507,10 @@ def viewCompletedTasks():
 
 
 def viewIncompletedTasks():
+    """
+    Displays the incompleted tasks in the spreadsheet 
+    and prompt user to select a task.
+    """
     clear()
     print(Fore.WHITE + "View Incompleted Tasks:")
     print(
@@ -544,8 +588,8 @@ def viewIncompletedTasks():
 
 def viewDueTasks():
     """
-    Demonstrates triple double quotes
-    docstrings and does nothing really
+    Displays the due tasks in the spreadsheet 
+    and prompt user to select a task.
     """
     clear()
     print(Fore.WHITE + "View Due Tasks:")
@@ -625,6 +669,10 @@ def viewDueTasks():
 
 
 def viewPastDueTasks():
+    """
+    Displays the past due tasks in the spreadsheet 
+    and prompt user to select a task.
+    """
     clear()
     print(Fore.WHITE + "View Past Due Tasks:")
     print(
@@ -702,11 +750,10 @@ def viewPastDueTasks():
         return
 
 
-def backToMain():
-    main()
-
-
 def viewTask():
+    """
+    Displays the view task menu and prompts user to select a choice.
+    """
     clear()
     print(Fore.WHITE + 'View Tasks Menu')
     print(
@@ -735,7 +782,7 @@ def viewTask():
     elif choice == str(6):
         viewPastDueTasks()
     elif choice == str(7):
-        backToMain()
+        main()
     else:
         print(Fore.RED + 'Invalid input, please enter a correct value:')
         time.sleep(1.5)
@@ -743,6 +790,10 @@ def viewTask():
 
 
 def addTask():
+    """
+    Prompts user to enter the task content and date.
+    Display confirmation screen to confirm changes. 
+    """
     clear()
     valid = False
     valid2 = False
@@ -821,6 +872,9 @@ def addTask():
 
 
 def main():
+    """
+    Displays the main menu.
+    """
     clear()
     print(Fore.WHITE + 'Main Menu')
     print(

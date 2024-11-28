@@ -6,7 +6,7 @@ This project was created to help myself and others increase in productivity by b
 <br>
 
 ### Site Goals
-* Provide a simple application that allows the user to add tasks and keep track of all tasks, the last task, completed tasks, incomplete tasks, due tasks, and past-due tasks.
+* Provide a simple application that allows the user to add tasks to a spreadsheet and manage those tasks which are divided into the following filters when viewing: all tasks, the last task set, complete tasks, incomplete tasks, due tasks, and past-due tasks.
 <br>
 
 ### User stories
