@@ -36,7 +36,10 @@ def validateDate(date_text):
         datetime.strptime(date_text, "%d/%m/%Y")
         valid = True
     except ValueError:
-        print(Fore.RED + 'Incorrect data format, please follow this format DD/MM/YYYY')
+        print(
+            Fore.RED + 'Incorrect data format, '
+            'please follow this format DD/MM/YYYY'
+        )
         time.sleep(1.5)
         return False
 
@@ -55,7 +58,10 @@ def validateContent(content):
     if all(x.isalpha() or x.isspace() for x in content):
         return True
     else:
-        print(Fore.RED + "Invalid input, content must only contain alphanumeric letters")
+        print(
+            Fore.RED + "Invalid input, content"
+            " must only contain alphanumeric letters"
+        )
         time.sleep(1.5)
         return False
 
@@ -113,7 +119,7 @@ class Task:
                 valid = True
             else:
                 print(Fore.RED + 'Invalid Input')
-                time.sleep(1)
+                time.sleep(1.5)
                 clear()
                 print(
                     Fore.WHITE + f"Current Task:\nContent: {self.content},\n"
@@ -180,47 +186,50 @@ def applyChanges(task, originalTask):
 
 
 def removeTask(task):
-    valid =False
+    valid = False
     clear()
     print('Delete Task')
     print('Xx------------------------------------------------------xX\n')
     while valid is False:
-            clear()
-            print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
-            print('Enter 1 for yes:')
-            print('Enter 2 for No:\n')
-            confirm = input('')
-            if confirm == str(1):
+        clear()
+        print(
+            Fore.WHITE + 'Would you like to confirm'
+            ' changes made to the task?\n'
+        )
+        print('Enter 1 for yes:')
+        print('Enter 2 for No:\n')
+        confirm = input('')
+        if confirm == str(1):
 
-                row_to_match = task
+            row_to_match = task
 
-                # Get all rows
-                all_rows = info.get_all_values()
+            # Get all rows
+            all_rows = info.get_all_values()
 
-                # Locate the row index
-                row_index = None
-                for i, row in enumerate(all_rows, start=1):
-                    if row == row_to_match:
-                        row_index = i
-                        break
+            # Locate the row index
+            row_index = None
+            for i, row in enumerate(all_rows, start=1):
+                if row == row_to_match:
+                    row_index = i
+                    break
 
-                if row_index:
-                    # Delete the row
-                    info.delete_rows(row_index)
-                    print(
-                        Fore.GREEN + f"The task with content:{task[0]},\n"
-                        f"status:{task[1]}\n, due date: {task[2]} has been removed\n"
-                    )
-                    time.sleep(2)
-                    main()                
-                valid = True
-            elif confirm == str(2):
+            if row_index:
+                # Delete the row
+                info.delete_rows(row_index)
+                print(
+                    Fore.GREEN + f"The task with content:{task[0]},\n"
+                    f"status:{task[1]}\n, due date: {task[2]}"
+                    f"has been removed\n"
+                )
+                time.sleep(1.5)
                 main()
-                valid = True
-            else:
-                print(Fore.RED + 'Invalid input')
-                time.sleep(1)
-
+            valid = True
+        elif confirm == str(2):
+            main()
+            valid = True
+        else:
+            print(Fore.RED + 'Invalid input')
+            time.sleep(1.5)
 
 
 def modifyTask(taskObject, originalTask):
@@ -251,7 +260,10 @@ def modifyTask(taskObject, originalTask):
     elif choice == str(4):
         while valid is False:
             clear()
-            print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
+            print(
+                Fore.WHITE + 'Would you like to confirm'
+                ' changes made to the task?\n'
+            )
             print('Enter 1 for yes:')
             print('Enter 2 for No:\n')
             confirm = input('')
@@ -270,7 +282,7 @@ def modifyTask(taskObject, originalTask):
         return
     else:
         print(Fore.RED + 'Invalid input, please choose a correct option')
-        time.sleep(1)
+        time.sleep(1.5)
         modifyTask(taskObject, originalTask)
 
 
@@ -280,9 +292,10 @@ def viewAllTasks():
     print('Xx------------------------------------------------------xX\n')
     tasks = info.get_all_values()
     task_vals = tasks[1:]
-    dates = sorted(task_vals, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    dates = sorted(
+        task_vals, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y")
+    )
     task_vals = dates
-
 
     for x in range(0, len(task_vals)):
         print(
@@ -327,8 +340,11 @@ def viewAllTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print(Fore.RED + 'Invalid input, please enter the correct value:')
-                time.sleep(1)
+                print(
+                    Fore.RED + 'Invalid input, please enter'
+                    ' the correct value:'
+                )
+                time.sleep(1.5)
 
     except IndexError as e:
         print(Fore.RED + f'{e}, please enter the correct value:')
@@ -377,7 +393,10 @@ def viewLastTask():
 def viewCompletedTasks():
     clear()
     print(Fore.WHITE + "View Completed Tasks:")
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx-----------------------------'
+        '-------------------------xX\n'
+    )
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -386,7 +405,9 @@ def viewCompletedTasks():
         if val[1] == 'Complete':
             completeList.append(val)
 
-    dates = sorted(completeList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    dates = sorted(
+        completeList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y")
+    )
     completeList = dates
 
     for x in range(0, len(completeList)):
@@ -432,8 +453,11 @@ def viewCompletedTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print(Fore.RED + 'Invalid input, please enter the correct value:')
-                time.sleep(1)
+                print(
+                    Fore.RED + 'Invalid input, please'
+                    ' enter the correct value:'
+                )
+                time.sleep(1.5)
 
     except IndexError as e:
         print(Fore.RED + f'{e}, please enter the correct value:')
@@ -445,7 +469,10 @@ def viewCompletedTasks():
 def viewIncompletedTasks():
     clear()
     print(Fore.WHITE + "View Incompleted Tasks:")
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx---------------------------'
+        '---------------------------xX\n'
+    )
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -454,7 +481,9 @@ def viewIncompletedTasks():
         if val[1] == 'Incomplete':
             completeList.append(val)
 
-    dates = sorted(completeList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    dates = sorted(
+        completeList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y")
+    )
     completeList = dates
 
     for x in range(0, len(completeList)):
@@ -500,8 +529,11 @@ def viewIncompletedTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print(Fore.RED + 'Invalid input, please enter the correct value:')
-                time.sleep(1)
+                print(
+                    Fore.RED + 'Invalid input, please enter'
+                    ' the correct value:'
+                )
+                time.sleep(1.5)
 
     except IndexError as e:
         print(Fore.RED + f'{e}, please enter the correct value:')
@@ -517,7 +549,10 @@ def viewDueTasks():
     """
     clear()
     print(Fore.WHITE + "View Due Tasks:")
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx--------------------------'
+        '----------------------------xX\n'
+    )
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -528,9 +563,10 @@ def viewDueTasks():
         if (dateGiven.date() > present.date()):
             DueTaskList.append(val)
 
-    dates = sorted(DueTaskList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    dates = sorted(
+        DueTaskList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y")
+    )
     DueTaskList = dates
-
 
     for x in range(0, len(DueTaskList)):
         print(
@@ -575,8 +611,11 @@ def viewDueTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print(Fore.RED + 'Invalid input, please enter a correct value:')
-                time.sleep(1)
+                print(
+                    Fore.RED + 'Invalid input, please enter'
+                    ' a correct value:'
+                )
+                time.sleep(1.5)
 
     except IndexError as e:
         print(Fore.RED + f'{e}, please enter the correct value:')
@@ -588,7 +627,10 @@ def viewDueTasks():
 def viewPastDueTasks():
     clear()
     print(Fore.WHITE + "View Past Due Tasks:")
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx--------------------------'
+        '----------------------------xX\n'
+    )
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -599,7 +641,9 @@ def viewPastDueTasks():
         if (dateGiven.date() < present.date()):
             DueTaskList.append(val)
 
-    dates = sorted(DueTaskList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y"))
+    dates = sorted(
+        DueTaskList, key=lambda x: datetime.strptime(x[2], "%d/%m/%Y")
+    )
     DueTaskList = dates
 
     for x in range(0, len(DueTaskList)):
@@ -620,9 +664,9 @@ def viewPastDueTasks():
         valid = False
         while valid is False:
             clear()
-            print("View Past Due Tasks:\n")
+            print(Fore.WHITE + "View Past Due Tasks:\n")
             print(
-                Fore.WHITE + "Xx----------------------------"
+                "Xx----------------------------"
                 "--------------------------xX\n"
             )
             print(
@@ -645,8 +689,11 @@ def viewPastDueTasks():
                 removeTask(selection)
                 valid = True
             else:
-                print(Fore.RED + 'Invalid input, please enter the correct value:')
-                time.sleep(1)
+                print(
+                    Fore.RED + 'Invalid input, please'
+                    ' enter the correct value:'
+                )
+                time.sleep(1.5)
 
     except IndexError as e:
         print(Fore.RED + f'{e}, please enter the correct value:')
@@ -662,7 +709,10 @@ def backToMain():
 def viewTask():
     clear()
     print(Fore.WHITE + 'View Tasks Menu')
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx--------------------------'
+        '----------------------------xX\n'
+    )
     print(Fore.WHITE + 'Selection an option from those below: \n')
     print(Fore.WHITE + '1: View All Tasks\n')
     print(Fore.WHITE + '2: View Last Task\n')
@@ -698,7 +748,10 @@ def addTask():
     valid2 = False
     valid3 = False
     print(Fore.WHITE + 'Add Task')
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx--------------------------'
+        '----------------------------xX\n'
+    )
     print(Fore.WHITE + 'Content:')
     taskContent = input(Fore.WHITE + "\nEnter the content of the new task:\n")
     while valid is False:
@@ -707,9 +760,14 @@ def addTask():
         else:
             clear()
             print(Fore.WHITE + 'Add Task')
-            print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+            print(
+                Fore.WHITE + 'Xx---------------------------'
+                '---------------------------xX\n'
+            )
             print(Fore.WHITE + 'Content:')
-            taskContent = input(Fore.WHITE + "\nEnter the content of the new task:\n")
+            taskContent = input(
+                Fore.WHITE + "\nEnter the content of the new task:\n"
+            )
     print(Fore.WHITE + '\nDue Date:')
     print('Enter the due date of the new task:')
     taskDueDate = input("")
@@ -721,7 +779,10 @@ def addTask():
         else:
             clear()
             print(Fore.WHITE + 'Add Task')
-            print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+            print(
+                Fore.WHITE + 'Xx---------------------------'
+                '---------------------------xX\n'
+            )
             print(Fore.WHITE + 'Content:')
             print(Fore.WHITE + "\nEnter the content of the new task:")
             print(f"{taskContent}\n")
@@ -753,7 +814,7 @@ def addTask():
             break
         else:
             print(Fore.RED + 'Invalid input')
-            confirm = input('')
+            confirm = input(Fore.WHITE + '')
             time.sleep(1)
 
     main()
@@ -762,7 +823,10 @@ def addTask():
 def main():
     clear()
     print(Fore.WHITE + 'Main Menu')
-    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
+    print(
+        Fore.WHITE + 'Xx--------------------------'
+        '----------------------------xX\n'
+    )
     print(Fore.WHITE + 'Selection an option from those below: \n')
     print(Fore.WHITE + '1: Add Task\n')
     print(Fore.WHITE + '2: View Tasks\n')
@@ -774,7 +838,7 @@ def main():
         viewTask()
     else:
         print(Fore.RED + 'Invalid entry, please try again')
-        time.sleep(1)
+        time.sleep(1.5)
         main()
 
 
@@ -805,5 +869,5 @@ if __name__ == "__main__":
 
 
     """)
-    time.sleep(3)
+    time.sleep(1.5)
     main()

@@ -170,11 +170,163 @@ This project was created to help myself and others increase in productivity by b
 
 ## Testing
 
+### Validator Testing
+* #### The [CI Python Linter](https://pep8ci.herokuapp.com/#) was used continuosly during the development proces to validate the Python code.
+
+
+![Python Validation](docs/read_me_images/CIPythonLinter.png)
+
+<br>
+
 ### Manual Testing
+<table>
+    <tr>
+        <th>Feature</th>
+        <th>Outcome</th>
+        <th>Example</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td>Main Menu</td>
+        <td>Inputs are validated so that only 1 and 2 are excepted as inputs</td>
+        <td><img src="docs/read_me_images/MainMenuErrorValidation.png" alt="Main menu validation error message"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Add Task</td>
+        <td>Validate the inputs so that task content only contains alphanumeric letters</td>
+        <td><img src="docs/read_me_images/screenshot2AddTask.png" alt="Screenshot 2"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Add Task</td>
+        <td>Validate the inputs so that only the correct format is accepted for the date</td>
+        <td><img src="docs/read_me_images/screenshot3AddTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Add Task Confirmation screen</td>
+        <td>Inputs are validated so that only 1 and 2 are excepted as inputs</td>
+        <td><img src="docs/read_me_images/screenshot4AddTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View Task Menu</td>
+        <td>Inputs are validated so that only a value corresponding to a function or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot5ViewTaskMenu.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td >View all tasks screen</td>
+        <td>Inputs are validated so that only a value corresponding to a task or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot6ViewAllTasks.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View All Task selected task screen</td>
+        <td>Validates the inputs to ensure only numbers from 0-2 are accepted</td>
+        <td><img src="docs/read_me_images/screenshot12ModifyTaskandRemoveTaskScreen.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View Last tasks screen</td>
+        <td>Inputs are validated so that only a value corresponding to a task or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot7ViewLastTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View Last tasks selected task screen</td>
+        <td>Validates the inputs to ensure only numbers from 0-2 are accepted</td>
+        <td><img src="docs/read_me_images/Screenshot20ViewLastTask-Selected.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View complete tasks screen</td>
+        <td>Inputs are validated so that only a value corresponding to a task or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot8ViewCompletedTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View complete tasks selected task screen</td>
+        <td>Validates the inputs to ensure only numbers from 0-2 are accepted</td>
+        <td><img src="docs/read_me_images/screenshot21ViewCompletedTasks-SelectedTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View Incomplete tasks screen</td>
+        <td>Inputs are validated so that only a value corresponding to a task or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot9ViewIncompleteTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View incomplete tasks selected task screen</td>
+        <td>Validates the inputs to ensure only numbers from 0-2 are accepted</td>
+        <td><img src="docs/read_me_images/screenshot22ViewIncompleteTasks-SelectedTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View due task screen</td>
+        <td>Inputs are validated so that only a value corresponding to a task or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot10ViewDueTasks.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View due tasks selected task screen</td>
+        <td>Validates the inputs to ensure only numbers from 0-2 are accepted</td>
+        <td><img src="docs/read_me_images/screenshot23ViewDueTask-SelectedTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View past due task screen</td>
+        <td>Inputs are validated so that only a value corresponding to a task or 0 to return to the main menu is accepted</td>
+        <td><img src="docs/read_me_images/screenshot11ViewPastDueTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>View past due tasks selected task screen</td>
+        <td>Validates the inputs to ensure only numbers from 0-2 are accepted</td>
+        <td><img src="docs/read_me_images/screenshot24ViewPastDueTask-SelectedTask.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Modify task screen</td>
+        <td>Validates the inputs to ensure only numbers from 1-5 are accepted</td>
+        <td><img src="docs/read_me_images/screenshot13ModifyTaskOption1-5.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Modify task screen - Change the content</td>
+        <td>Inputs are validated so that only alphanumeric letters are accepted</td>
+        <td><img src="docs/read_me_images/screenshot13ModifyTaskContent.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Modify task screen - Change the status</td>
+        <td>Inputs are validated so that only 1 and 2 are excepted as inputs</td>
+        <td><img src="docs/read_me_images/screenshot14ModifyTaskStatus.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Modify task screen - Change the due date</td>
+        <td>Validate the input so that only the correct format is accepted for the date and that the date is not in the past</td>
+        <td><img src="docs/read_me_images/screenshot15ModifyTaskDate.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Modify task screen - Confirm the changes</td>
+        <td>Inputs are validated so that only 1 and 2 are excepted as inputs</td>
+        <td><img src="docs/read_me_images/screenshot16ModifyTaskConfirm.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Remove task confirmation screen</td>
+        <td>Inputs are validated so that only 1 and 2 are excepted as inputs</td>
+        <td><img src="docs/read_me_images/screenshot19RemoveTask.png"></td>
+        <td>Pass</td>
+    </tr>
+</table>
 
-
-
-### Validator Testing 
+<br>
 
 ## Deployment
 
