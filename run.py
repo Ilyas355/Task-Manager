@@ -93,7 +93,7 @@ class Task:
             f"Status: {self.status},\nDue Date: {self.dueDate}\n"
         )
         print('\nEnter the new content for the task\n')
-        Content = input('')
+        Content = input('\n')
         while valid is False:
             if validateContent(Content) is True:
                 self.content = Content
@@ -106,7 +106,7 @@ class Task:
                     f"Status: {self.status},\nDue Date: {self.dueDate}\n"
                 )
                 print('\nEnter the new content for the task\n')
-                Content = input('')
+                Content = input('\n')
 
     def UpdateStatus(self):
         """
@@ -124,7 +124,7 @@ class Task:
         )
         print('1: Complete')
         print('2: Incomplete\n')
-        Status = input('')
+        Status = input('\n')
         while valid is False:
             if Status == str(1):
                 self.status = 'Complete'
@@ -146,7 +146,7 @@ class Task:
                 )
                 print('1: Complete')
                 print('2: Incomplete\n')
-                Status = input('')
+                Status = input('\n')
 
     def UpdateDueDate(self):
         """
@@ -223,7 +223,7 @@ def removeTask(task):
         )
         print('Enter 1 for yes:')
         print('Enter 2 for No:\n')
-        confirm = input('')
+        confirm = input('\n')
         if confirm == str(1):
 
             row_to_match = task
@@ -276,7 +276,7 @@ def modifyTask(taskObject, originalTask):
     print('3: Change the due date\n')
     print('4: Confirm changes\n')
     print('5: Return to main menu\n')
-    choice = input('')
+    choice = input('\n')
     if choice == str(1):
         taskObject.UpdateContent()
         modifyTask(taskObject, originalTask)
@@ -295,7 +295,7 @@ def modifyTask(taskObject, originalTask):
             )
             print('Enter 1 for yes:')
             print('Enter 2 for No:\n')
-            confirm = input('')
+            confirm = input('\n')
             if confirm == str(1):
                 applyChanges(taskObject, originalTask)
                 break
@@ -337,7 +337,7 @@ def viewAllTasks():
 
     print(Fore.WHITE + "Enter the number of the task below to select a task:")
     print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
-    choice = input("")
+    choice = input("\n")
 
     try:
         if choice == str(0):
@@ -359,7 +359,7 @@ def viewAllTasks():
             print(Fore.WHITE + "\nTo modify the task, enter 1")
             print(Fore.WHITE + "To remove the task, enter 2")
             print(Fore.WHITE + "To return to the main menu, enter 0\n")
-            choice2 = input("")
+            choice2 = input("\n")
             if choice2 == str(0):
                 main()
                 valid = True
@@ -406,7 +406,7 @@ def viewLastTask():
     print(Fore.WHITE + "To modify the task, enter 1")
     print(Fore.WHITE + "To remove the task, enter 2")
     print(Fore.WHITE + "To return to the main menu, enter 0\n")
-    choice = input("")
+    choice = input("\n")
 
     if choice == str(0):
         main()
@@ -457,7 +457,7 @@ def viewCompletedTasks():
 
     print(Fore.WHITE + "Enter the number of the task below to select a task:")
     print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
-    choice = input("")
+    choice = input("\n")
 
     try:
         if choice == str(0):
@@ -479,7 +479,7 @@ def viewCompletedTasks():
             print(Fore.WHITE + "\nTo modify the task, enter 1")
             print(Fore.WHITE + "To remove the task, enter 2")
             print(Fore.WHITE + "To return to the main menu, enter 0\n")
-            choice2 = input("")
+            choice2 = input("\n")
             if choice2 == str(0):
                 main()
                 valid = True
@@ -537,7 +537,7 @@ def viewIncompletedTasks():
 
     print(Fore.WHITE + "Enter the number of the task below to select a task:")
     print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
-    choice = input("")
+    choice = input("\n")
 
     try:
         if choice == str(0):
@@ -559,7 +559,7 @@ def viewIncompletedTasks():
             print(Fore.WHITE + "\nTo modify the task, enter 1")
             print(Fore.WHITE + "To remove the task, enter 2")
             print(Fore.WHITE + "To return to the main menu, enter 0\n")
-            choice2 = input("")
+            choice2 = input("\n")
             if choice2 == str(0):
                 main()
                 valid = True
@@ -619,7 +619,7 @@ def viewDueTasks():
 
     print(Fore.WHITE + "Enter the number of the task below to select a task:")
     print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
-    choice = input("")
+    choice = input("\n")
 
     try:
         if choice == str(0):
@@ -641,7 +641,7 @@ def viewDueTasks():
             print(Fore.WHITE + "\nTo modify the task, enter 1")
             print(Fore.WHITE + "To remove the task, enter 2")
             print(Fore.WHITE + "To return to the main menu, enter 0\n")
-            choice2 = input("")
+            choice2 = input("\n")
             if choice2 == str(0):
                 main()
                 valid = True
@@ -701,7 +701,7 @@ def viewPastDueTasks():
 
     print(Fore.WHITE + "Enter the number of the task below to select a task:")
     print(Fore.WHITE + "Enter 0 to return to the main menu:\n")
-    choice = input("")
+    choice = input("\n")
 
     try:
         if choice == str(0):
@@ -723,7 +723,7 @@ def viewPastDueTasks():
             print(Fore.WHITE + "\nTo modify the task, enter 1")
             print(Fore.WHITE + "To remove the task, enter 2")
             print(Fore.WHITE + "To return to the main menu, enter 0\n")
-            choice2 = input("")
+            choice2 = input("\n")
             if choice2 == str(0):
                 main()
                 valid = True
@@ -767,7 +767,7 @@ def viewTask():
     print(Fore.WHITE + '5: View Due Tasks\n')
     print(Fore.WHITE + '6: View Past Due Tasks\n')
     print(Fore.WHITE + '7: Back to main\n')
-    choice = input('')
+    choice = input('\n')
     if choice == str(1):
         viewAllTasks()
     elif choice == str(2):
@@ -820,7 +820,7 @@ def addTask():
             )
     print(Fore.WHITE + '\nDue Date:')
     print('Enter the due date of the new task:')
-    taskDueDate = input("")
+    taskDueDate = input("\n")
     while valid2 is False:
         if validateDate(taskDueDate) is True:
             task = Task(taskContent, 'Incomplete', taskDueDate)
@@ -848,7 +848,7 @@ def addTask():
     print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
     print(Fore.WHITE + 'Enter 1 for yes:')
     print(Fore.WHITE + 'Enter 2 for No:\n')
-    confirm = input('')
+    confirm = input('\n')
     while valid3 is False:
         if confirm == str(1):
             clear()
@@ -883,7 +883,7 @@ def main():
     print(Fore.WHITE + 'Selection an option from those below: \n')
     print(Fore.WHITE + '1: Add Task\n')
     print(Fore.WHITE + '2: View Tasks\n')
-    choice = input('')
+    choice = input('\n')
 
     if choice == str(1):
         addTask()
