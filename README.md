@@ -1,6 +1,8 @@
 # Task Manager
 ![Welcome Message](docs/read_me_images/WelcomeMessage.png)
 
+Visit the deployed application [here](https://taskmanagerpp3-8955eacf9ce5.herokuapp.com/)
+
 ## Introduction
 This project was created to help myself and others increase in productivity by being able to manage and add daily tasks. 
 <br>
@@ -388,6 +390,11 @@ The steps to deploy to Heroku are as follows:
 - Heroku will build your app and will then display a 'View' button at the bottom of the screen.
 - Click **'View'** to see your deployed project!  
 
+## Credits
+
+### Code
+
+[stack overflow](https://stackoverflow.com/questions/61594765/how-to-use-str-isalpha) - Stack overlow was refered to throughout the development of this project when it came to dealing with errors and shortcuts in validation.
 
 
 
