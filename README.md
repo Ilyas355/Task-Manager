@@ -200,6 +200,12 @@ This project was created to help myself and others increase in productivity by b
     </tr>
     <tr>
         <td>Add Task</td>
+        <td>Validate the inputs so that task content cannot be empty</td>
+        <td><img src="docs/read_me_images/AddTaskContentEmptyValidation.png" alt="Screenshot 2"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Add Task</td>
         <td>Validate the inputs so that only the correct format is accepted for the date</td>
         <td><img src="docs/read_me_images/screenshot3AddTask.png"></td>
         <td>Pass</td>
@@ -298,6 +304,12 @@ This project was created to help myself and others increase in productivity by b
         <td>Modify task screen - Change the content</td>
         <td>Inputs are validated so that only alphanumeric letters are accepted</td>
         <td><img src="docs/read_me_images/screenshot13ModifyTaskContent.png"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Modify task screen - Change the content</td>
+        <td>Inputs are validated so that empty fields are not accepted as inputs</td>
+        <td><img src="docs/read_me_images/ModifyTaskContentEmptyValidation.png"></td>
         <td>Pass</td>
     </tr>
     <tr>

@@ -63,6 +63,12 @@ def validateContent(content):
     :returns: True or false
 
     """
+    if content == '':
+        print(Fore.RED + 'Task content should not be empty')
+        time.sleep(5)
+        return False
+    
+
     valid = False
     if all(x.isalpha() or x.isspace() for x in content):
         return True
