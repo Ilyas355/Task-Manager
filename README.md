@@ -342,6 +342,52 @@ This project was created to help myself and others increase in productivity by b
 
 ## Deployment
 
+### Gitpod Version Control
+This site was created using the Gitpod cloud development environment before being pushed through to a dedicated repository on Github.
+
+The following commands were used througout development to push the code through to the Github repo:
+
+- **git add .** - This command was used to add any tracked files to the staging area.
+- **git commit -m "Commit message."** - This command was used to create a snapshot of the staged area with a short description.
+- **git push** - This command was used to push the committed changes from the current branch to the remote repository on Github.
+
+
+### Deployment
+
+The finished program was initially hosted within a repository on Github, and then this Github repository was connected with Heroku, the site through which the program is deployed.
+
+***How to Deploy to Heroku***
+
+The steps to deploy to Heroku are as follows:
+
+- Ensure that you have a file in your program file directory called: requirements.txt 
+- Ensure that all imported libraries that are used in your program are listed in the requirements.txt file.
+    - To add any new libraries, type the following command into the terminal: pip3 freeze > requirements.txt
+- To avoid errors, ensure that there is a \n (new line) at the end of every input function in your code.
+- Use **git add .** then **git commit -m "Commit message."** and then **git push** to push all latest changes into the relevant repository on Github.
+- Go to the [Heroku Website](https://dashboard.heroku.com/) and log in by clicking on the link in the top right corner of the screen.
+    - Sign up for a new Heroku account if needed. 
+    - Please note you will need to add a payment card before Heroku will allow you to deploy any project. 
+    - To do this you will need to click on your account profile in the top right corner and click on Account Settings, then select the Billing tab and follow the instructions to add a credit card. 
+- Once logged in, click on the **'New'** drop down menu at the top of your dashboard and select **'Create new app'**
+- Choose a name for your app ideally using the same conventions as your project name in your Github repository
+- Select the region that you are located in from the options shown
+- Ignore the Add to pipeline... button and click on **'Create app'**
+- Select the **'Settings'** tab at the top of the screen and scroll to the Config Vars section
+- Click on **'Reveal Config Vars'** and if you have a file with confidetial information such as a CREDS.json file type 'CREDS' in the 'key' field and then copy the entire contents of your CREDS.json file and paste it all into the 'Value' field before clicking on **'Add'**.
+- Repeat the above process to add a second Config Var and type 'PORT' in the 'Key' field and type '8000' in the 'Value' field before clicking on **'Add'**
+- Scroll down to the Buildpacks section and click on **'Add buildpack'**, then select 'Python' from the menu and click on **'Add'**.
+- Repeat the above process to add a second buildpack. This time select 'nodejs' from the menu and click on **'Add'**.
+- Check that both buildpacks are listed and that Python is positioned on top, with nodejs listed underneath.
+- Scroll back to the top of the page and click on the 'Deploy' tab.
+- In the Deployment Method section, select Github and confirm that you want to connect to Github.
+- In the 'Search for a repository to connect to' type in the name of the repository that you want to deploy and click **'Search'**.
+- Click on the **'Connect'** button next to the correct Github repository in the search results
+- Scroll down to select whether you would like to deploy automatically (Heroku will build a new app every time you push new updates through to the Github repository), or whether you would like to deploy manually at less regular intervals when you wish to check or test something.
+- Click on either **'Enable Automatic Deploys'** to update automatically, or on **'Deploy Branch'** (ensure that the branch selected is 'main') to deploy manually when you want to.
+- Heroku will build your app and will then display a 'View' button at the bottom of the screen.
+- Click **'View'** to see your deployed project!  
+
 
 
 

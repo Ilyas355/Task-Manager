@@ -11,7 +11,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-CREDS = Credentials.from_service_account_file('Creds.json')
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('TaskManager')
@@ -65,7 +65,6 @@ def validateContent(content):
     """
     if content == '':
         print(Fore.RED + 'Task content should not be empty')
-        time.sleep(5)
         return False
     
 
@@ -870,7 +869,7 @@ def addTask():
             break
         else:
             print(Fore.RED + 'Invalid input')
-            confirm = input(Fore.WHITE + '')
+            confirm = input(Fore.WHITE + '\n')
             time.sleep(1)
 
     main()
