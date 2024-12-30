@@ -67,7 +67,6 @@ def validateContent(content):
         print(Fore.RED + 'Task content should not be empty')
         time.sleep(3)
         return False
-    
 
     valid = False
     if all(x.isalpha() or x.isspace() for x in content):
@@ -184,7 +183,7 @@ class Task:
 
 def applyChanges(task, originalTask):
     """
-    Updates the spreadsheet with the new task. 
+    Updates the spreadsheet with the new task.
     Takes in the object and list form of the task.
     """
     clear()
@@ -433,7 +432,7 @@ def viewLastTask():
 
 def viewCompletedTasks():
     """
-    Displays the completed tasks in the spreadsheet 
+    Displays the completed tasks in the spreadsheet
     and prompt user to select a task.
     """
     clear()
@@ -513,7 +512,7 @@ def viewCompletedTasks():
 
 def viewIncompletedTasks():
     """
-    Displays the incompleted tasks in the spreadsheet 
+    Displays the incompleted tasks in the spreadsheet
     and prompt user to select a task.
     """
     clear()
@@ -593,7 +592,7 @@ def viewIncompletedTasks():
 
 def viewDueTasks():
     """
-    Displays the due tasks in the spreadsheet 
+    Displays the due tasks in the spreadsheet
     and prompt user to select a task.
     """
     clear()
@@ -675,7 +674,7 @@ def viewDueTasks():
 
 def viewPastDueTasks():
     """
-    Displays the past due tasks in the spreadsheet 
+    Displays the past due tasks in the spreadsheet
     and prompt user to select a task.
     """
     clear()
@@ -797,7 +796,7 @@ def viewTask():
 def addTask():
     """
     Prompts user to enter the task content and date.
-    Display confirmation screen to confirm changes. 
+    Display confirmation screen to confirm changes.
     """
     clear()
     valid = False
