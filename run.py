@@ -65,6 +65,7 @@ def validateContent(content):
     """
     if content == '':
         print(Fore.RED + 'Task content should not be empty')
+        time.sleep(3)
         return False
     
 
