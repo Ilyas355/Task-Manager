@@ -218,8 +218,8 @@ def removeTask(task):
     """
     valid = False
     clear()
-    print('Delete Task')
     print('Xx------------------------------------------------------xX\n')
+    print('Delete Task\n')
     while valid is False:
         clear()
         print(
@@ -269,8 +269,8 @@ def modifyTask(taskObject, originalTask):
     """
     valid = False
     clear()
-    print(Fore.WHITE + 'Modify Task')
     print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Modify Task\n')
     print(
         f"Task:\nContent: {taskObject.content},\nStatus: {taskObject.status},"
         f"\nDue Date: {taskObject.dueDate}\n"
@@ -325,8 +325,8 @@ def viewAllTasks():
     Displays all tasks in the spreadsheet and prompt user to select a task.
     """
     clear()
-    print(Fore.WHITE + "View All Tasks:")
     print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + "View All Tasks:\n")
     tasks = info.get_all_values()
     task_vals = tasks[1:]
     dates = sorted(
@@ -352,11 +352,11 @@ def viewAllTasks():
         valid = False
         while valid is False:
             clear()
-            print(Fore.WHITE + "View All Tasks:\n")
             print(
                 Fore.WHITE + "Xx-------------------------"
                 "-----------------------------xX\n"
             )
+            print(Fore.WHITE + "View All Tasks:\n")
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -400,8 +400,8 @@ def viewLastTask():
     Displays the last task in the spreadsheet and prompt user to select a task.
     """
     clear()
-    print(Fore.WHITE + "View Last Task:\n")
     print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + "View Last Task:\n")
     task = info.get_all_values()
     task_vals = task[-1]
     print(
@@ -436,11 +436,11 @@ def viewCompletedTasks():
     and prompt user to select a task.
     """
     clear()
-    print(Fore.WHITE + "View Completed Tasks:")
     print(
         Fore.WHITE + 'Xx-----------------------------'
         '-------------------------xX\n'
     )
+    print(Fore.WHITE + "View Completed Tasks:\n")
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -472,11 +472,11 @@ def viewCompletedTasks():
         valid = False
         while valid is False:
             clear()
-            print(Fore.WHITE + "View Completed Tasks:\n")
             print(
                 Fore.WHITE + "Xx--------------------------"
                 "----------------------------xX\n"
             )
+            print(Fore.WHITE + "View Completed Tasks:\n")
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -516,11 +516,11 @@ def viewIncompletedTasks():
     and prompt user to select a task.
     """
     clear()
-    print(Fore.WHITE + "View Incompleted Tasks:")
     print(
         Fore.WHITE + 'Xx---------------------------'
         '---------------------------xX\n'
     )
+    print(Fore.WHITE + "View Incompleted Tasks:\n")
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -552,11 +552,11 @@ def viewIncompletedTasks():
         valid = False
         while valid is False:
             clear()
-            print(Fore.WHITE + "View Incompleted Tasks:\n")
             print(
                 Fore.WHITE + "Xx-------------------------"
                 "-----------------------------xX\n"
             )
+            print(Fore.WHITE + "View Incompleted Tasks:\n")
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -596,11 +596,11 @@ def viewDueTasks():
     and prompt user to select a task.
     """
     clear()
-    print(Fore.WHITE + "View Due Tasks:")
     print(
         Fore.WHITE + 'Xx--------------------------'
         '----------------------------xX\n'
     )
+    print(Fore.WHITE + "View Due Tasks:\n")
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -634,11 +634,11 @@ def viewDueTasks():
         valid = False
         while valid is False:
             clear()
-            print(Fore.WHITE + "View Due Tasks:\n")
             print(
                 Fore.WHITE + "Xx---------------------------"
                 "---------------------------xX\n"
             )
+            print(Fore.WHITE + "View Due Tasks:\n")
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
@@ -678,11 +678,11 @@ def viewPastDueTasks():
     and prompt user to select a task.
     """
     clear()
-    print(Fore.WHITE + "View Past Due Tasks:")
     print(
         Fore.WHITE + 'Xx--------------------------'
         '----------------------------xX\n'
     )
+    print(Fore.WHITE + "View Past Due Tasks:\n")
     tasks = info.get_all_values()
 
     tasks_vals = tasks[1:]
@@ -716,11 +716,11 @@ def viewPastDueTasks():
         valid = False
         while valid is False:
             clear()
-            print(Fore.WHITE + "View Past Due Tasks:\n")
             print(
                 "Xx----------------------------"
                 "--------------------------xX\n"
             )
+            print(Fore.WHITE + "View Past Due Tasks:\n")
             print(
                 f"Task: {choice},\nContent: {selection[0]},\n"
                 f"Status: {selection[1]},\nDue Date: {selection[2]}\n"
