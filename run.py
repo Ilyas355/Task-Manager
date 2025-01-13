@@ -269,7 +269,7 @@ def modifyTask(taskObject, originalTask):
     """
     valid = False
     clear()
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     print(Fore.WHITE + 'Modify Task\n')
     print(
         f"Task:\nContent: {taskObject.content},\nStatus: {taskObject.status},"
@@ -325,7 +325,7 @@ def viewAllTasks():
     Displays all tasks in the spreadsheet and prompt user to select a task.
     """
     clear()
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     print(Fore.WHITE + "View All Tasks:\n")
     tasks = info.get_all_values()
     task_vals = tasks[1:]
@@ -400,7 +400,7 @@ def viewLastTask():
     Displays the last task in the spreadsheet and prompt user to select a task.
     """
     clear()
-    print('Xx------------------------------------------------------xX\n')
+    print(Fore.WHITE + 'Xx------------------------------------------------------xX\n')
     print(Fore.WHITE + "View Last Task:\n")
     task = info.get_all_values()
     task_vals = task[-1]
