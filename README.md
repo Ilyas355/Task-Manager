@@ -31,8 +31,9 @@ This project was created to help myself and others increase in productivity by b
 ### Existing Features
 
 #### Main menu
-* The main menu displays two options to the user to select either option 1, add a task or option 2, view tasks.
-    * If the user selects option 1, the task manager runs the add task function in which the user is prompted to enter task content and the date
+* The main menu displays two options for the user to select: Option 1 - Add a Task, or Option 2 - View Tasks.
+    * If the user selects Option 1, the task manager runs the "Add Task" function, prompting the user to enter task content and the date.
+    * If the user selects Option 2, the menu for filtering the tasks for viewing is displayed.
 
 ![Main Menu](docs/read_me_images/MainMenu.png)
 
@@ -40,17 +41,17 @@ This project was created to help myself and others increase in productivity by b
 
 
 #### Add Task
-* The task manager's add task function prompts the user to enter the content and date for the task.
-    * The function validates if the content and date entered are of the correct type and format.
+* The task manager's "Add Task" function prompts the user to enter the content and date for the task.
+    * The function validates whether the content and date entered are in the correct format and type.
 
 ![Add Task](docs/read_me_images/AddTask.jpeg)
 
 <br>
 
 - #### Confirmation in adding the task
-    - Once the user has entered the correct content and date of the task, the user is asked if they would like to confirm the details.
-    - The function validates the input so that only 1 and 2 can be entered for yes or no.
-    - If they enter 1 the changes are confirmed and the changes are pushed to the spreadsheet and if the input is 2 the changes are abandoned and the main menu is displayed.
+    - Once the user has entered the correct content and date of the task, they are asked to confirm the details.
+        - The function validates the input so that only 1 (yes) or 2 (no) can be entered.
+        - If the user enters 1, the task is confirmed and saved to the spreadsheet. If the user enters 2, the changes are abandoned, and the main menu is displayed.
  
 
 ![Confirmation in adding the task](docs/read_me_images/ConfirmationAddTask.png)
@@ -58,96 +59,96 @@ This project was created to help myself and others increase in productivity by b
 <br>
 
 * #### View Task Menu
-    * The view task menu is displayed when the user selects the view tasks option on the main menu.
-    * It displays 7 options to the user with each each option carrying out their corresponding functionality as displayed in their names.
-    * The input is validated so that the user can only select the correct input.
+    * The "View Task" menu is displayed when the user selects the View Tasks option on the main menu.
+        * It presents 7 options to the user, each corresponding to a specific functionality, as described by their names.
+        * The input is validated so that the user can only select a valid option.
 
 ![View Task](docs/read_me_images/ViewTaskMenu.png)
 
 <br>
 
 * #### View All Tasks
-    * The view all task function displays all tasks in the spreasheet in order of chronological order according to their date.
-    * The input is validated so that the user can only enter the correct value.
+    * The "View All Tasks" function displays all tasks in the spreadsheet in chronological order based on their dates.
+        * The input is validated to ensure the user enters a correct value.
 
 ![View All Tasks](docs/read_me_images/ViewAllTasks.png)
 
 <br>
 
 - #### Task is selected
-    - Once the task has been selected, the user is given the option to either modify the task, remove the task or return to the main menu.
-    - The input is validated so that the can only enter the correct value.
+    - Once a task is selected, the user is given options to either modify the task, remove the task, or return to the main menu.
+        - The input is validated to ensure the user enters a correct value.
 
 ![View All Tasks Selected Task](docs/read_me_images/ViewAllTasks-Selected.png)
 
 <br>
 
 * #### View Last Task
-    * The view last task function displays the last task in uploaded to the speadsheet.
-    * The user is given the option to modify the task, remove the task and to return back to the main menu.
+    * The "View Last Task" function displays the last task uploaded to the spreadsheet.
+        * The user is given options to modify the task, remove the task, or return to the main menu.
 
 ![View Last Task](docs/read_me_images/ViewLastTask.png)
 
 <br>
 
-* #### View Complete Tasks
-    * The view completed task function displays all completed tasks in the spreasheet in order of chronological order according to their date.
-    * The input is validated so that the user can only enter the correct value.
+* #### View Completed Tasks
+    * The "View Completed Tasks" function displays all completed tasks in the spreadsheet in chronological order based on their dates.
+        * The input is validated to ensure the user enters a correct value.
 
 ![View Completed Tasks](docs/read_me_images/ViewCompletedTasks.png)
 
 <br>
 
 - #### Task is selected
-    - Once the task has been selected, the user is given the option to either modify the task, remove the task or return to the main menu.
-    - The input is validated so that the can only enter the correct value.
+    - Once a task is selected, the user is given options to either modify the task, remove the task, or return to the main menu.
+        - The input is validated to ensure the user enters a correct value.
 
 ![View Completed Tasks Selected](docs/read_me_images/ViewCompletedTasks-Selected.png)
 
 * #### View Incomplete Tasks
-    * The view incompleted task function displays all incomplete tasks in the spreasheet in order of chronological order according to their date.
-    * The input is validated so that the user can only enter the correct value.
+    * The "View Incomplete Tasks" function displays all incomplete tasks in the spreadsheet in chronological order based on their dates.
+    * The input is validated to ensure the user enters a correct value.
 
 ![View Incomplete Tasks](docs/read_me_images/ViewIncompleteTasks.png)
 
 <br>
 
 - #### Task is selected
-    - Once the task has been selected, the user is given the option to either modify the task, remove the task or return to the main menu.
-    - The input is validated so that the can only enter the correct value.
+    - Once a task is selected, the user is given options to either modify the task, remove the task, or return to the main menu.
+        - The input is validated to ensure the user enters a correct value.
 
 ![View Incomplete Tasks Selected](docs/read_me_images/ViewIncompledTasks-Selected.png)
 
 * #### View Due Tasks
-    * The view due task function displays all due tasks in the spreasheet in order of chronological order according to their date.
-    * The input is validated so that the user can only enter the correct value.
+    * The "View Due Tasks" function displays all tasks that are due, sorted in chronological order based on their dates.
+        * The input is validated to ensure the user enters a correct value.
 
 ![View Due Tasks](docs/read_me_images/ViewDueTasks.png)
 
 <br>
 
 - #### Task is selected
-    - Once the task has been selected, the user is given the option to either modify the task, remove the task or return to the main menu.
-    - The input is validated so that the can only enter the correct value.
+    - Once a task is selected, the user is given options to either modify the task, remove the task, or return to the main menu.
+        - The input is validated to ensure the user enters a correct value.
 
 ![View Due Tasks Selected](docs/read_me_images/ViewDueTasks-Selected.png)
 
 * #### View Past Due Tasks
-    * The view past due task function displays all past due tasks in the spreasheet in order of chronological order according to their date.
-    * The input is validated so that the user can only enter the correct value.
+    * The "View Past Due Tasks" function displays all past-due tasks in the spreadsheet, sorted in chronological order based on their dates.
+        * The input is validated to ensure the user enters a correct value.
 
 ![View Past Due Tasks](docs/read_me_images/ViewPastDueTasks.png)
 
 <br>
 
 - #### Task is selected
-    - Once the task has been selected, the user is given the option to either modify the task, remove the task or return to the main menu.
-    - The input is validated so that the can only enter the correct value.
+    - Once a task is selected, the user is given options to either modify the task, remove the task, or return to the main menu.
+        - The input is validated to ensure the user enters a correct value.
 
 ![View Past Due Task Selected](docs/read_me_images/ViewPastDueTasks-Selected.png)
 
 ### Features left to implement
-* Additional features to implement would include an attribute that says a task is either expired or not expired making it easier for the user to tell the difference.
+* Additional features to implement include an attribute that indicates whether a task is expired or not, making it easier for users to differentiate tasks.
 <br>
 
 ## Technologies used
