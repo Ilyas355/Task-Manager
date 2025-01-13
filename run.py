@@ -317,6 +317,7 @@ def modifyTask(taskObject, originalTask):
     else:
         print(Fore.RED + 'Invalid input, please choose a correct option')
         time.sleep(1.5)
+        clear()
         modifyTask(taskObject, originalTask)
 
 
