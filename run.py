@@ -247,11 +247,13 @@ def removeTask(task):
                 # Delete the row
                 info.delete_rows(row_index)
                 print(
-                    Fore.GREEN + f"The task with content:{task[0]},\n"
-                    f"status:{task[1]}\n, due date: {task[2]}"
+                    Fore.GREEN + f"The task with" 
+                    f"Content:{task[0]},\n"
+                    f"status:{task[1]}\n",
+                    f"due date: {task[2]}\n"
                     f"has been removed\n"
                 )
-                time.sleep(1.5)
+                time.sleep(3)
                 main()
             valid = True
         elif confirm == str(2):
