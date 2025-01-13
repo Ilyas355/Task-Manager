@@ -247,10 +247,10 @@ def removeTask(task):
                 # Delete the row
                 info.delete_rows(row_index)
                 print(
-                    Fore.GREEN + f"The task with" 
+                    Fore.GREEN + f"The task with\n" 
                     f"Content:{task[0]},\n"
-                    f"status:{task[1]}\n",
-                    f"due date: {task[2]}\n"
+                    f"Status:{task[1]},\n"
+                    f"Due date: {task[2]},\n"
                     f"has been removed\n"
                 )
                 time.sleep(3)
