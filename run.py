@@ -869,9 +869,18 @@ def addTask():
             main()
             break
         else:
-            print(Fore.RED + 'Invalid input')
-            confirm = input(Fore.WHITE + '\n')
+            print(Fore.RED + 'Invalid input, please enter either 1 or 2')
             time.sleep(1)
+            clear()
+            print(Fore.WHITE + 'Current Task:\n')
+            print(Fore.WHITE + f"content: {task.content}")
+            print(Fore.WHITE + f"status: {task.status}")
+            print(Fore.WHITE + f"due date: {task.dueDate}\n")
+
+            print(Fore.WHITE + 'Would you like to confirm changes made to the task?\n')
+            print(Fore.WHITE + 'Enter 1 for yes:')
+            print(Fore.WHITE + 'Enter 2 for No:\n')
+            confirm = input(Fore.WHITE + '\n')
 
     main()
 
