@@ -26,7 +26,6 @@ def clear():
     :return:
 
     """
-    # os.system("clear")
     print("\033c")
 
 
