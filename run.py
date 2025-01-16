@@ -26,7 +26,8 @@ def clear():
     :return:
 
     """
-    os.system("clear")
+    # os.system("clear")
+    print("\033c")
 
 
 def validateDate(date_text):
